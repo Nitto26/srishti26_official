@@ -21,9 +21,6 @@ export function Intro({ opacity, transform }: IntroProps) {
         <h1 className="text-2xl md:text-4xl font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
           SRISHTI 2.6
         </h1>
-        <p className="text-lg md:text-xl text-foreground/80">
-          The Annual Cultural & Technical Fest
-        </p>
       </div>
       <div className="absolute bottom-8 animate-bounce" aria-hidden="true">
         <ChevronDown className="w-8 h-8 text-foreground/50" />

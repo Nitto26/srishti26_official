@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'SRISHTI 2.6',
-  description: 'The Annual Cultural & Technical Fest',
+  description: 'SRISHTI 2.6',
 };
 
 export default function RootLayout({
