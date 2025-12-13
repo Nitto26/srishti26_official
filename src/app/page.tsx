@@ -9,8 +9,10 @@ import { Contact } from "@/components/Contact";
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
   const [showHeader, setShowHeader] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const fadeOutDistance = window.innerHeight * 0.75;
@@ -35,7 +37,7 @@ export default function Home() {
         <Contact />
       </div>
        <footer className="text-center p-8 text-foreground/50">
-          <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>
+          {isClient && <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>}
        </footer>
     </main>
   );
