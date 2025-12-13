@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Intro } from "@/components/Intro";
 import { Timeline } from "@/components/Timeline";
+import { Contact } from "@/components/Contact";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -31,6 +32,7 @@ export default function Home() {
       <div className="relative z-10">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
         <Timeline />
+        <Contact />
       </div>
        <footer className="text-center p-8 text-foreground/50">
           <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>
