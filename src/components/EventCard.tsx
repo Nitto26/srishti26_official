@@ -44,16 +44,19 @@ export function EventCard({ event, orientation }: EventCardProps) {
 
   let animationClass = 'opacity-0';
   if (isVisible) {
-      animationClass = orientation === 'left' 
-        ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
-        : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
+      if (isMobile) {
+        animationClass = 'animate-in slide-in-from-bottom-12 fade-in duration-700 fill-mode-forwards'
+      } else {
+        animationClass = orientation === 'left' 
+          ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
+          : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
+      }
   }
 
   return (
     <div ref={cardRef} className={animationClass}>
-       <div className="absolute top-2 h-5 w-5 rounded-full bg-background border-2 border-primary -left-2.5 md:-left-4" />
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
-        <div className="relative h-32 w-full">
+        <div className="relative h-48 w-full">
           <Image
             src={event.image.url}
             alt={event.title}
