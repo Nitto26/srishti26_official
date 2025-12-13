@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Intro } from "@/components/Intro";
 import { Timeline } from "@/components/Timeline";
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Instagram } from "lucide-react";
 
@@ -44,6 +45,7 @@ export default function Home() {
       <div className="relative z-10">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
         <Timeline />
+        <About />
         <Contact />
       </div>
        <footer className="text-center p-8">
