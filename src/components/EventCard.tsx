@@ -48,13 +48,14 @@ export function EventCard({ event, orientation }: EventCardProps) {
       animationClass = 'animate-in slide-in-from-left-8 fade-in duration-700 fill-mode-forwards';
     } else {
       animationClass = orientation === 'left' 
-        ? 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards'
-        : 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards';
+        ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
+        : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
     }
   }
 
   return (
-    <div ref={cardRef} className={animationClass}>
+    <div ref={cardRef} className={`ml-8 md:ml-0 ${animationClass}`}>
+       <div className="absolute -left-4 top-2 h-5 w-5 rounded-full bg-background border-2 border-primary md:hidden" />
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
         <div className="relative h-48 w-full">
           <Image

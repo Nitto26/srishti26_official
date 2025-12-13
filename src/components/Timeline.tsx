@@ -17,21 +17,22 @@ export function Timeline() {
             {events.map((event, index) => (
               <div
                 key={event.id}
-                className="relative pl-12 before:absolute before:left-4 before:top-2 before:h-5 before:w-5 before:rounded-full before:bg-background before:border-2 before:border-primary md:grid md:grid-cols-[1fr_auto_1fr] md:gap-x-12 md:pl-0 before:md:left-1/2 before:md:-translate-x-1/2 before:md:top-1/2 before:md:-translate-y-1/2"
+                className="relative md:grid md:grid-cols-2 md:gap-x-12 items-center"
               >
-                {index % 2 === 0 ? (
-                  <>
-                    <div className="hidden md:block"></div>
-                    <div className="hidden md:block"></div>
-                    <EventCard event={event} orientation="right" />
-                  </>
-                ) : (
-                  <>
-                    <EventCard event={event} orientation="left" />
-                    <div className="hidden md:block"></div>
-                    <div className="hidden md:block"></div>
-                  </>
-                )}
+                <div
+                  className={`md:pr-8 ${
+                    index % 2 === 0 ? 'md:order-2 md:pl-8 md:pr-0' : ''
+                  }`}
+                >
+                  <EventCard
+                    event={event}
+                    orientation={index % 2 === 0 ? 'right' : 'left'}
+                  />
+                </div>
+
+                <div className="hidden md:flex items-center justify-center relative">
+                   <div className="absolute w-5 h-5 rounded-full bg-background border-2 border-primary" />
+                </div>
               </div>
             ))}
           </div>
