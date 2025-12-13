@@ -13,7 +13,7 @@ export function Intro({ opacity }: IntroProps) {
       aria-hidden={opacity < 0.1}
     >
       <div className="flex flex-col items-center gap-4 animate-in fade-in zoom-in-95 duration-1000">
-        <SrishtiFestLogo className="w-64 md:w-96" />
+        <SrishtiFestLogo className="w-64 h-64 md:w-96 md:h-96" />
         <p className="text-lg md:text-xl text-foreground/80 animate-in fade-in-0 delay-500 duration-1000 fill-mode-both">
           The Annual Cultural & Technical Fest
         </p>

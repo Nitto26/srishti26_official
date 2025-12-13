@@ -16,7 +16,7 @@ export function Header({ show }: HeaderProps) {
       }`}
       aria-hidden={!show}
     >
-      <Link href="/" className="w-32" aria-label="SrishtiFest Home">
+      <Link href="/" className="w-12 h-12" aria-label="SrishtiFest Home">
         <SrishtiFestLogo />
       </Link>
       <Button asChild style={{
