@@ -10,6 +10,7 @@ import { Instagram } from "lucide-react";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
+  const [introTransform, setIntroTransform] = useState(0);
   const [showHeader, setShowHeader] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -27,6 +28,9 @@ export default function Home() {
       const opacity = Math.max(0, 1 - scrollY / fadeOutDistance);
       setIntroOpacity(opacity);
 
+      const transform = -scrollY * 0.5;
+      setIntroTransform(transform);
+
       setShowHeader(scrollY > fadeOutDistance);
     };
 
@@ -40,7 +44,7 @@ export default function Home() {
 
   return (
     <main>
-      <Intro opacity={introOpacity} />
+      <Intro opacity={introOpacity} transform={introTransform} />
       <Header show={showHeader} />
       <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
