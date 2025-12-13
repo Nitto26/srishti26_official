@@ -10,18 +10,18 @@ export function Timeline() {
         </h2>
         <div className="relative">
           <div
-            className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-accent/20"
+            className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 md:-translate-x-1/2 bg-accent/20"
             aria-hidden="true"
           />
           <div className="space-y-8">
             {events.map((event, index) => (
               <div
                 key={event.id}
-                className="relative grid grid-cols-2 gap-x-6 sm:gap-x-12 items-start"
+                className="relative md:grid md:grid-cols-2 md:gap-x-12 items-start"
               >
                 <div
-                  className={`${
-                    index % 2 === 0 ? 'order-2 pl-3 sm:pl-8' : 'order-1 pr-3 sm:pr-8'
+                  className={`pl-12 md:pl-0 ${
+                    index % 2 === 0 ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'
                   }`}
                 >
                   <EventCard
@@ -29,8 +29,8 @@ export function Timeline() {
                     orientation={index % 2 === 0 ? 'right' : 'left'}
                   />
                 </div>
-                <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-1/2`} />
-                <div className={`${ index % 2 === 0 ? 'order-1' : 'order-2'}`} />
+                <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2`} />
+                <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
               </div>
             ))}
           </div>
