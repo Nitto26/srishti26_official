@@ -44,20 +44,16 @@ export function EventCard({ event, orientation }: EventCardProps) {
 
   let animationClass = 'opacity-0';
   if (isVisible) {
-    if (isMobile) {
-      animationClass = 'animate-in slide-in-from-left-8 fade-in duration-700 fill-mode-forwards';
-    } else {
       animationClass = orientation === 'left' 
         ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
         : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
-    }
   }
 
   return (
-    <div ref={cardRef} className={`ml-8 md:ml-0 ${animationClass}`}>
-       <div className="absolute -left-4 top-2 h-5 w-5 rounded-full bg-background border-2 border-primary md:hidden" />
+    <div ref={cardRef} className={animationClass}>
+       <div className="absolute top-2 h-5 w-5 rounded-full bg-background border-2 border-primary -left-2.5 md:-left-4" />
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
-        <div className="relative h-48 w-full">
+        <div className="relative h-32 w-full">
           <Image
             src={event.image.url}
             alt={event.title}
@@ -68,13 +64,13 @@ export function EventCard({ event, orientation }: EventCardProps) {
           />
         </div>
         <CardHeader>
-          <CardTitle className="font-headline text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+          <CardTitle className="font-headline text-xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
             {event.title}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 pt-4">
-          <p className="text-foreground/80">{event.description}</p>
-          <div className="flex items-center gap-4 text-sm text-accent">
+        <CardContent className="space-y-3 pt-2 md:pt-4">
+          <p className="text-sm text-foreground/80">{event.description}</p>
+          <div className="flex items-center gap-4 text-xs md:text-sm text-accent">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <span>{event.date}</span>
