@@ -18,6 +18,9 @@ export function Intro({ opacity, transform }: IntroProps) {
         style={{ transform: `translateY(${transform}px)` }}
       >
         <SrishtiFestLogo className="w-64 h-64 md:w-96 md:h-96" />
+        <h1 className="text-2xl md:text-4xl font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+          SRISHTI 2.6
+        </h1>
         <p className="text-lg md:text-xl text-foreground/80">
           The Annual Cultural & Technical Fest
         </p>

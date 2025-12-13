@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Srishti 2.6',
+  title: 'SRISHTI 2.6',
   description: 'The Annual Cultural & Technical Fest',
 };
 
