@@ -28,7 +28,7 @@ export function EventCard({ event, orientation }: EventCardProps) {
           observer.disconnect();
         }
       },
-      { rootMargin: isMobile ? '-50px' : '-150px' }
+      { rootMargin: '-100px' }
     );
 
     if (cardRef.current) {
@@ -44,36 +44,32 @@ export function EventCard({ event, orientation }: EventCardProps) {
 
   let animationClass = 'opacity-0';
   if (isVisible) {
-      if (isMobile) {
-        animationClass = 'animate-in slide-in-from-bottom-12 fade-in duration-700 fill-mode-forwards'
-      } else {
-        animationClass = orientation === 'left' 
-          ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
-          : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
-      }
+      animationClass = orientation === 'left' 
+        ? 'animate-in slide-in-from-left-12 fade-in duration-700 fill-mode-forwards'
+        : 'animate-in slide-in-from-right-12 fade-in duration-700 fill-mode-forwards';
   }
 
   return (
     <div ref={cardRef} className={animationClass}>
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
-        <div className="relative h-48 w-full">
+        <div className="relative h-32 w-full">
           <Image
             src={event.image.url}
             alt={event.title}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 50vw, 33vw"
             className="object-cover"
             data-ai-hint={event.image.hint}
           />
         </div>
-        <CardHeader>
-          <CardTitle className="font-headline text-xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+        <CardHeader className="p-3 sm:p-6">
+          <CardTitle className="font-headline text-lg sm:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
             {event.title}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 pt-2 md:pt-4">
-          <p className="text-sm text-foreground/80">{event.description}</p>
-          <div className="flex items-center gap-4 text-xs md:text-sm text-accent">
+        <CardContent className="space-y-3 p-3 pt-0 sm:p-6 sm:pt-0">
+          <p className="text-xs sm:text-sm text-foreground/80">{event.description}</p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-accent">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <span>{event.date}</span>
