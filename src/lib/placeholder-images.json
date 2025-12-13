@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "event-1",
+      "description": "Inauguration Ceremony",
+      "imageUrl": "https://images.unsplash.com/photo-1560801122-b59974a71aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvcGVuaW5nJTIwY2VyZW1vbnl8ZW58MHx8fHwxNzY1NjQxNjQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "opening ceremony"
+    },
+    {
+      "id": "event-2",
+      "description": "CodeSprint: AI Challenge",
+      "imageUrl": "https://images.unsplash.com/photo-1565687981296-535f09db714e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RpbmclMjBoYWNrYXRob258ZW58MHx8fHwxNzY1NjM5MTA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coding hackathon"
+    },
+    {
+      "id": "event-3",
+      "description": "RoboWars",
+      "imageUrl": "https://images.unsplash.com/photo-1718453908973-977abedb2c54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyb2JvdCUyMGNvbWJhdHxlbnwwfHx8fDE3NjU2NDE2NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "robot combat"
+    },
+    {
+      "id": "event-4",
+      "description": "Startup Pitch Deck",
+      "imageUrl": "https://images.unsplash.com/photo-1590098563298-a873b00c91a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBwaXRjaHxlbnwwfHx8fDE3NjU2NDE2NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business pitch"
+    },
+    {
+      "id": "event-5",
+      "description": "Crescendo: Battle of Bands",
+      "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtdXNpYyUyMGNvbmNlcnR8ZW58MHx8fHwxNzY1NTkzMDU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "music concert"
+    },
+    {
+      "id": "event-6",
+      "description": "Valedictory & DJ Night",
+      "imageUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkaiUyMHBhcnR5fGVufDB8fHx8MTc2NTU3MzkzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dj party"
+    }
+  ]
 }
