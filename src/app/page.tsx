@@ -13,6 +13,11 @@ export default function Home() {
 
   useEffect(() => {
     setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const fadeOutDistance = window.innerHeight * 0.75;
@@ -25,7 +30,11 @@ export default function Home() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isClient]);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <main>
@@ -37,7 +46,7 @@ export default function Home() {
         <Contact />
       </div>
        <footer className="text-center p-8 text-foreground/50">
-          {isClient && <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>}
+          <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>
        </footer>
     </main>
   );
