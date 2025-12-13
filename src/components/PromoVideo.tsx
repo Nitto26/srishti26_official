@@ -1,6 +1,6 @@
 export function PromoVideo() {
   return (
-    <section className="relative w-full h-[70vh] overflow-hidden">
+    <section className="relative w-full h-[70vh] overflow-hidden border-2 border-primary">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/djmp4.mp4"
