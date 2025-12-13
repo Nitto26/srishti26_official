@@ -22,7 +22,7 @@ export const SrishtiFestLogo = (props: SVGProps<SVGSVGElement>) => (
       fontWeight="bold"
       fill="url(#logo-gradient)"
     >
-      SrishtiFest
+      Srishti 2.6
     </text>
   </svg>
 );
