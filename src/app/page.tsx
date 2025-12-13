@@ -42,13 +42,13 @@ export default function Home() {
     <main>
       <Intro opacity={introOpacity} />
       <Header show={showHeader} />
-      <div className="relative z-10">
+      <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
         <Timeline />
         <About />
         <Contact />
       </div>
-       <footer className="text-center p-8">
+       <footer className="text-center p-8 relative z-20">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-foreground/50 hover:text-foreground transition-colors">
             <Instagram className="w-5 h-5" />
             <span>Srishti 2.6</span>

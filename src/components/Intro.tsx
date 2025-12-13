@@ -8,7 +8,7 @@ type IntroProps = {
 export function Intro({ opacity }: IntroProps) {
   return (
     <div
-      className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background transition-opacity duration-500"
+      className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-background transition-opacity duration-500"
       style={{ opacity }}
       aria-hidden={opacity < 0.1}
     >
