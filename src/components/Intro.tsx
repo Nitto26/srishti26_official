@@ -14,7 +14,7 @@ export function Intro({ opacity, transform }: IntroProps) {
       aria-hidden={opacity < 0.1}
     >
       <div 
-        className="flex flex-col items-center gap-4 will-change-transform"
+        className="flex flex-col items-center gap-2 will-change-transform"
         style={{ transform: `translateY(${transform}px)` }}
       >
         <SrishtiFestLogo className="w-64 h-64 md:w-96 md:h-96" />
