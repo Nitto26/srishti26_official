@@ -16,8 +16,9 @@ export function Header({ show }: HeaderProps) {
       }`}
       aria-hidden={!show}
     >
-      <Link href="/" className="w-12 h-12" aria-label="SrishtiFest Home">
-        <SrishtiFestLogo />
+      <Link href="/" className="flex items-center gap-4" aria-label="SrishtiFest Home">
+        <SrishtiFestLogo className="w-12 h-12" />
+        <span className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</span>
       </Link>
       <Button asChild style={{
         backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
