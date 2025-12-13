@@ -7,6 +7,7 @@ import { Timeline } from "@/components/Timeline";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Instagram } from "lucide-react";
+import { PromoVideo } from "@/components/PromoVideo";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -48,6 +49,7 @@ export default function Home() {
       <Header show={showHeader} />
       <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
+        <PromoVideo />
         <Timeline />
         <About />
         <Contact />
