@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Intro } from "@/components/Intro";
 import { Timeline } from "@/components/Timeline";
 import { Contact } from "@/components/Contact";
+import { Instagram } from "lucide-react";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -45,8 +46,11 @@ export default function Home() {
         <Timeline />
         <Contact />
       </div>
-       <footer className="text-center p-8 text-foreground/50">
-          <p>&copy; {new Date().getFullYear()} SrishtiFest. All rights reserved.</p>
+       <footer className="text-center p-8">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-foreground/50 hover:text-foreground transition-colors">
+            <Instagram className="w-5 h-5" />
+            <span>Srishti 2.6</span>
+          </a>
        </footer>
     </main>
   );
