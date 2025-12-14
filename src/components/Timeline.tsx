@@ -43,7 +43,6 @@ export function Timeline() {
       let closestEventIndex = -1;
       let minDistance = Infinity;
     
-      // Find the event card closest to the center of the viewport
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
@@ -55,22 +54,17 @@ export function Timeline() {
         }
       });
     
-      // Once the last event is active, keep it active as we scroll past.
-      // This prevents the tracker from moving up again.
       setActiveEvent(prevActiveEvent => {
-        if (closestEventIndex === events.length - 1) {
-            return events.length - 1;
-        }
-        if (prevActiveEvent === events.length - 1 && closestEventIndex < events.length -1) {
-             const lastEventRef = eventRefs.current[events.length - 1];
-             if(lastEventRef) {
-                const lastEventRect = lastEventRef.getBoundingClientRect();
-                // if last event is still in view (from top), keep it active
-                if(lastEventRect.top > 0) {
-                    return closestEventIndex;
-                }
-             }
-             return prevActiveEvent;
+        const lastEventIndex = events.length - 1;
+        const lastEventRef = eventRefs.current[lastEventIndex];
+
+        if (lastEventRef) {
+          const lastEventRect = lastEventRef.getBoundingClientRect();
+          // If the bottom of the last card is above the viewport center,
+          // it means we have scrolled past it, so we should keep it active.
+          if (lastEventRect.bottom < viewportCenter) {
+            return lastEventIndex;
+          }
         }
         
         return closestEventIndex !== -1 ? closestEventIndex : prevActiveEvent;
@@ -91,7 +85,6 @@ export function Timeline() {
     
     if (activeRef) {
        const eventCardRect = activeRef.getBoundingClientRect();
-       // Position the tracker exactly in the middle of the active event card
        const newTrackerY = (eventCardRect.top - timelineRect.top) + (eventCardRect.height / 2);
        setTrackerY(newTrackerY);
     }
