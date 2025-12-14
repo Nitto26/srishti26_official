@@ -14,28 +14,28 @@ export function PhotoGallery() {
     <section id="photos" className="py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative h-64 md:h-80">
+          <div className="relative h-80 md:h-96">
             {galleryImages.map((image, index) => (
               <div
                 key={image.id}
-                className={`absolute w-48 sm:w-64 md:w-80 aspect-[4/3] rounded-lg overflow-hidden border-4 border-card shadow-2xl shadow-primary/20 hover:scale-105 hover:z-10 transition-transform duration-300 ${image.rotation}`}
+                className={`absolute w-48 sm:w-64 md:w-72 aspect-[4/3] rounded-lg overflow-hidden border-4 border-card shadow-2xl shadow-primary/20 hover:scale-105 hover:z-10 transition-transform duration-300 ${image.rotation}`}
                 style={{
-                  top: `${10 + index * 25}%`,
-                  left: `${10 + index * 15}%`,
+                  top: `${10 + index * 20}%`,
+                  left: `calc(50% - ${100 + index * 30}px)`,
                 }}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 640px) 12rem, (max-width: 768px) 16rem, 20rem"
+                  sizes="(max-width: 640px) 12rem, (max-width: 768px) 16rem, 18rem"
                   className="object-cover"
                   data-ai-hint={image.hint}
                 />
               </div>
             ))}
           </div>
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
               Event Photos
             </h2>
