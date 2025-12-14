@@ -25,8 +25,7 @@ export function Header({ show }: HeaderProps) {
       aria-hidden={!show}
     >
       <Link href="/" className="flex items-center gap-4" aria-label="SrishtiFest Home">
-        <SrishtiFestLogo className="w-12 h-12" />
-        <span className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</span>
+        <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</span>
       </Link>
       <nav className="hidden md:flex items-center gap-6">
         {navLinks.map((link) => (
