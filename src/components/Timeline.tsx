@@ -8,12 +8,14 @@ export function Timeline() {
   const [activeEvent, setActiveEvent] = useState<number | null>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const hollowCircleRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLHeadingElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const [trackerY, setTrackerY] = useState(-100);
 
   useEffect(() => {
     eventRefs.current = eventRefs.current.slice(0, events.length);
+    hollowCircleRefs.current = hollowCircleRefs.current.slice(0, events.length);
 
     const headerObserver = new IntersectionObserver(
       ([entry]) => {
@@ -36,9 +38,6 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const timelineRect = timelineRef.current?.getBoundingClientRect();
-      if (!timelineRect) return;
-    
       const viewportCenter = window.innerHeight / 2;
       let closestEventIndex = -1;
       let minDistance = Infinity;
@@ -82,12 +81,12 @@ export function Timeline() {
       return;
     };
     
-    const activeRef = eventRefs.current[activeEvent];
+    const activeHollowCircleRef = hollowCircleRefs.current[activeEvent];
     const timelineRect = timelineRef.current.getBoundingClientRect();
     
-    if (activeRef) {
-       const eventCardRect = activeRef.getBoundingClientRect();
-       const newTrackerY = (eventCardRect.top - timelineRect.top) + (eventCardRect.height / 2);
+    if (activeHollowCircleRef) {
+       const hollowCircleRect = activeHollowCircleRef.getBoundingClientRect();
+       const newTrackerY = (hollowCircleRect.top - timelineRect.top) + (hollowCircleRect.height / 2);
        setTrackerY(newTrackerY);
     }
   }, [activeEvent]);
@@ -132,7 +131,10 @@ export function Timeline() {
                       isActive={activeEvent === index}
                     />
                   </div>
-                  <div className={`absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary/50 -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2`} />
+                  <div 
+                    ref={el => hollowCircleRefs.current[index] = el}
+                    className={`absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary/50 -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2`} 
+                  />
                   <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
                 </div>
               ))}
