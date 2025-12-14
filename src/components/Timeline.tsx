@@ -42,6 +42,12 @@ export function Timeline() {
       const viewportCenter = window.innerHeight / 2;
       let closestEventIndex = -1;
       let minDistance = Infinity;
+
+      const firstEventRef = eventRefs.current[0];
+      if (firstEventRef && firstEventRef.getBoundingClientRect().top > viewportCenter) {
+        setActiveEvent(null);
+        return;
+      }
     
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
@@ -54,21 +60,14 @@ export function Timeline() {
         }
       });
     
-      setActiveEvent(prevActiveEvent => {
-        const lastEventIndex = events.length - 1;
-        const lastEventRef = eventRefs.current[lastEventIndex];
+      const lastEventIndex = events.length - 1;
+      const lastEventRef = eventRefs.current[lastEventIndex];
 
-        if (lastEventRef) {
-          const lastEventRect = lastEventRef.getBoundingClientRect();
-          // If the bottom of the last card is above the viewport center,
-          // it means we have scrolled past it, so we should keep it active.
-          if (lastEventRect.bottom < viewportCenter) {
-            return lastEventIndex;
-          }
-        }
-        
-        return closestEventIndex !== -1 ? closestEventIndex : prevActiveEvent;
-      });
+      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < viewportCenter) {
+        setActiveEvent(lastEventIndex);
+      } else {
+        setActiveEvent(closestEventIndex !== -1 ? closestEventIndex : null);
+      }
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -78,7 +77,10 @@ export function Timeline() {
   }, [headerVisible]);
 
   useEffect(() => {
-    if (activeEvent === null || !timelineRef.current) return;
+    if (activeEvent === null || !timelineRef.current) {
+      setTrackerY(-100); // Hide tracker if no event is active
+      return;
+    };
     
     const activeRef = eventRefs.current[activeEvent];
     const timelineRect = timelineRef.current.getBoundingClientRect();
@@ -104,12 +106,12 @@ export function Timeline() {
              <div
               className="absolute left-4 md:left-1/2 top-0 w-0.5 md:-translate-x-1/2 bg-accent/20 transition-all duration-300 ease-out"
               aria-hidden="true"
-              style={{ height: `${trackerY}px` }}
+              style={{ height: trackerY > 0 ? `${trackerY}px`: '0px' }}
             />
 
             <div 
               className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
-              style={{ top: `${trackerY}px` }}
+              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0 }}
               />
 
             <div className="space-y-8">
@@ -130,7 +132,7 @@ export function Timeline() {
                       isActive={activeEvent === index}
                     />
                   </div>
-                  <div className={`absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2`} />
+                  <div className={`absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary/50 -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2`} />
                   <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
                 </div>
               ))}
