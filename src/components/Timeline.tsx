@@ -1,11 +1,81 @@
+'use client';
+
 import { events } from '@/lib/events';
 import { EventCard } from './EventCard';
+import { useEffect, useRef, useState } from 'react';
 
 export function Timeline() {
+  const [activeEvent, setActiveEvent] = useState<number | null>(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [trackerY, setTrackerY] = useState(-100);
+
+  useEffect(() => {
+    eventRefs.current = eventRefs.current.slice(0, events.length);
+
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeaderVisible(true);
+        }
+      },
+      { rootMargin: '0px 0px -150px 0px' }
+    );
+    if (headerRef.current) {
+      headerObserver.observe(headerRef.current);
+    }
+    
+    return () => headerObserver.disconnect();
+
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const timelineRect = timelineRef.current?.getBoundingClientRect();
+      if (!timelineRect) return;
+
+      const viewportCenter = window.innerHeight / 2;
+      let closestEventIndex = -1;
+      let minDistance = Infinity;
+
+      eventRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestEventIndex = index;
+        }
+      });
+      
+      if (closestEventIndex !== -1 && activeEvent !== closestEventIndex) {
+        setActiveEvent(closestEventIndex);
+      }
+      
+      const activeRef = eventRefs.current[closestEventIndex];
+      if (activeRef) {
+         const eventCardRect = activeRef.getBoundingClientRect();
+         // Center of the event card's dot
+         setTrackerY(eventCardRect.top + 32); 
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeEvent]);
+
   return (
-    <div className="py-24" id="timeline">
+    <div className="py-24" id="timeline" ref={timelineRef}>
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+        <h2
+          ref={headerRef}
+          className={`text-4xl md:text-5xl font-bold text-center mb-20 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
           Event Timeline
         </h2>
         <div className="relative">
@@ -13,10 +83,17 @@ export function Timeline() {
             className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 md:-translate-x-1/2 bg-accent/20"
             aria-hidden="true"
           />
+
+          <div 
+            className="absolute left-4 md:left-1/2 top-0 h-5 w-5 rounded-full bg-primary border-4 border-background transition-transform duration-500 ease-out will-change-transform -translate-x-1/2" 
+            style={{ transform: `translateY(${trackerY}px) translateX(-50%)` }}
+            />
+
           <div className="space-y-8">
             {events.map((event, index) => (
               <div
                 key={event.id}
+                ref={el => eventRefs.current[index] = el}
                 className="relative md:grid md:grid-cols-2 md:gap-x-12 items-start"
               >
                 <div
@@ -27,6 +104,7 @@ export function Timeline() {
                   <EventCard
                     event={event}
                     orientation={index % 2 === 0 ? 'right' : 'left'}
+                    isActive={activeEvent === index}
                   />
                 </div>
                 <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2`} />
