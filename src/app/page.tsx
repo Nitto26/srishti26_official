@@ -8,6 +8,7 @@ import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Instagram } from "lucide-react";
 import { PromoVideo } from "@/components/PromoVideo";
+import { Sponsors } from "@/components/Sponsors";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -51,6 +52,7 @@ export default function Home() {
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
         <PromoVideo />
         <Timeline />
+        <Sponsors />
         <About />
         <Contact />
       </div>
