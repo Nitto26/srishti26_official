@@ -41,10 +41,17 @@ export function Timeline() {
       const viewportCenter = window.innerHeight / 2;
       let closestEventIndex = -1;
       let minDistance = Infinity;
-
+    
       const firstEventRef = eventRefs.current[0];
       if (firstEventRef && firstEventRef.getBoundingClientRect().top > viewportCenter) {
         setActiveEvent(null);
+        return;
+      }
+
+      const lastEventIndex = events.length - 1;
+      const lastEventRef = eventRefs.current[lastEventIndex];
+      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < viewportCenter) {
+        setActiveEvent(lastEventIndex);
         return;
       }
     
@@ -59,14 +66,7 @@ export function Timeline() {
         }
       });
     
-      const lastEventIndex = events.length - 1;
-      const lastEventRef = eventRefs.current[lastEventIndex];
-
-      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < viewportCenter) {
-        setActiveEvent(lastEventIndex);
-      } else {
-        setActiveEvent(closestEventIndex !== -1 ? closestEventIndex : null);
-      }
+      setActiveEvent(closestEventIndex !== -1 ? closestEventIndex : null);
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
