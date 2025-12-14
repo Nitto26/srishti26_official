@@ -11,6 +11,7 @@ type HeaderProps = {
 const navLinks = [
   { href: "#timeline", label: "Timeline" },
   { href: "#sponsors", label: "Sponsors" },
+  { href: "#photos", label: "Gallery" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
