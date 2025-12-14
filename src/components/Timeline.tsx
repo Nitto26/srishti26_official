@@ -19,6 +19,7 @@ export function Timeline() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setHeaderVisible(true);
+          headerObserver.disconnect();
         }
       },
       { rootMargin: '0px 0px -150px 0px' }
@@ -32,6 +33,8 @@ export function Timeline() {
   }, []);
 
   useEffect(() => {
+    if (!headerVisible) return;
+
     const handleScroll = () => {
       const timelineRect = timelineRef.current?.getBoundingClientRect();
       if (!timelineRect) return;
@@ -43,7 +46,7 @@ export function Timeline() {
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        const distance = Math.abs(rect.top - viewportCenter);
+        const distance = Math.abs(rect.top + rect.height / 2 - viewportCenter);
 
         if (distance < minDistance) {
           minDistance = distance;
@@ -58,8 +61,9 @@ export function Timeline() {
       const activeRef = eventRefs.current[closestEventIndex];
       if (activeRef) {
          const eventCardRect = activeRef.getBoundingClientRect();
-         // Center of the event card's dot
-         setTrackerY(eventCardRect.top + 32); 
+         const timelineTop = timelineRect.top;
+         // Position the tracker relative to the timeline component
+         setTrackerY(eventCardRect.top - timelineTop + eventCardRect.height / 2);
       }
     };
     
@@ -67,7 +71,7 @@ export function Timeline() {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeEvent]);
+  }, [activeEvent, headerVisible]);
 
   return (
     <div className="py-24" id="timeline" ref={timelineRef}>
@@ -78,41 +82,43 @@ export function Timeline() {
         >
           Event Timeline
         </h2>
-        <div className="relative">
-          <div
-            className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 md:-translate-x-1/2 bg-accent/20"
-            aria-hidden="true"
-          />
-
-          <div 
-            className="absolute left-4 md:left-1/2 top-0 h-5 w-5 rounded-full bg-primary border-4 border-background transition-transform duration-500 ease-out will-change-transform -translate-x-1/2" 
-            style={{ transform: `translateY(${trackerY}px) translateX(-50%)` }}
+        {headerVisible && (
+          <div className="relative">
+            <div
+              className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 md:-translate-x-1/2 bg-accent/20"
+              aria-hidden="true"
             />
 
-          <div className="space-y-8">
-            {events.map((event, index) => (
-              <div
-                key={event.id}
-                ref={el => eventRefs.current[index] = el}
-                className="relative md:grid md:grid-cols-2 md:gap-x-12 items-start"
-              >
+            <div 
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
+              style={{ transform: `translateY(${trackerY}px) translateX(-50%)` }}
+              />
+
+            <div className="space-y-8">
+              {events.map((event, index) => (
                 <div
-                  className={`pl-12 md:pl-0 ${
-                    index % 2 === 0 ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'
-                  }`}
+                  key={event.id}
+                  ref={el => eventRefs.current[index] = el}
+                  className="relative md:grid md:grid-cols-2 md:gap-x-12 items-center"
                 >
-                  <EventCard
-                    event={event}
-                    orientation={index % 2 === 0 ? 'right' : 'left'}
-                    isActive={activeEvent === index}
-                  />
+                  <div
+                    className={`pl-12 md:pl-0 ${
+                      index % 2 === 0 ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'
+                    }`}
+                  >
+                    <EventCard
+                      event={event}
+                      orientation={index % 2 === 0 ? 'right' : 'left'}
+                      isActive={activeEvent === index}
+                    />
+                  </div>
+                  <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2 md:top-1/2 md:-translate-y-1/2`} />
+                  <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
                 </div>
-                <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2`} />
-                <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

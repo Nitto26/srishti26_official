@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { Event } from '@/lib/events';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -20,7 +19,7 @@ export function EventCard({ event, orientation, isActive }: EventCardProps) {
   const transformClass = orientation === 'left' ? 'md:translate-x-0' : 'md:translate-x-0';
 
   return (
-    <div className={`transition-all duration-700 ease-out transform ${animationClass} ${transformClass}`}>
+    <div className={`transition-all duration-700 ease-out transform ${animationClass} ${transformClass} animate-in fade-in-0 ${orientation === 'left' ? 'slide-in-from-left-12' : 'slide-in-from-right-12'} duration-1000`}>
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
         <div className="relative h-32 w-full">
           <Image
