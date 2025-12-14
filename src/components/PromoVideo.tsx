@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Calendar } from "lucide-react";
 
 export function PromoVideo() {
   return (
@@ -28,6 +29,10 @@ export function PromoVideo() {
             Get Free Ticket
           </a>
         </Button>
+      </div>
+      <div className="absolute bottom-4 left-4 z-10 text-white flex items-center gap-2 text-lg font-bold bg-black/30 p-2 rounded-md">
+        <Calendar className="w-5 h-5" />
+        <span>20 Jan 2026</span>
       </div>
     </section>
   );
