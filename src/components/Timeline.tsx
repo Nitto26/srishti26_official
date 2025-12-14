@@ -46,6 +46,7 @@ export function Timeline() {
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
+        // Calculate the distance from the center of the event card to the viewport center
         const distance = Math.abs(rect.top + rect.height / 2 - viewportCenter);
 
         if (distance < minDistance) {
@@ -54,23 +55,30 @@ export function Timeline() {
         }
       });
       
-      if (closestEventIndex !== -1 && activeEvent !== closestEventIndex) {
+      if (closestEventIndex !== -1) {
         setActiveEvent(closestEventIndex);
-      }
-      
-      const activeRef = eventRefs.current[closestEventIndex];
-      if (activeRef) {
-         const eventCardRect = activeRef.getBoundingClientRect();
-         const timelineTop = timelineRect.top;
-         setTrackerY(eventCardRect.top - timelineTop + eventCardRect.height / 2);
       }
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeEvent, headerVisible]);
+  }, [headerVisible]);
+
+  useEffect(() => {
+    if (activeEvent === null || !timelineRef.current) return;
+    
+    const activeRef = eventRefs.current[activeEvent];
+    const timelineRect = timelineRef.current.getBoundingClientRect();
+    
+    if (activeRef) {
+       const eventCardRect = activeRef.getBoundingClientRect();
+       // Position the tracker exactly in the middle of the active event card
+       const newTrackerY = (eventCardRect.top - timelineRect.top) + (eventCardRect.height / 2);
+       setTrackerY(newTrackerY);
+    }
+  }, [activeEvent]);
 
   return (
     <div className="py-24" id="timeline" ref={timelineRef}>
@@ -90,7 +98,7 @@ export function Timeline() {
             />
 
             <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
               style={{ top: `${trackerY}px` }}
               />
 
