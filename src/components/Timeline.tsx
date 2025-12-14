@@ -84,9 +84,10 @@ export function Timeline() {
         </h2>
         {headerVisible && (
           <div className="relative">
-            <div
-              className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 md:-translate-x-1/2 bg-accent/20"
+             <div
+              className="absolute left-4 md:left-1/2 top-0 w-0.5 md:-translate-x-1/2 bg-accent/20 transition-all duration-300 ease-out"
               aria-hidden="true"
+              style={{ height: `${trackerY}px` }}
             />
 
             <div 
