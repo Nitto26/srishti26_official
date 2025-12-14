@@ -38,26 +38,43 @@ export function Timeline() {
     const handleScroll = () => {
       const timelineRect = timelineRef.current?.getBoundingClientRect();
       if (!timelineRect) return;
-
+    
       const viewportCenter = window.innerHeight / 2;
       let closestEventIndex = -1;
       let minDistance = Infinity;
-
+    
+      // Find the event card closest to the center of the viewport
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        // Calculate the distance from the center of the event card to the viewport center
         const distance = Math.abs(rect.top + rect.height / 2 - viewportCenter);
-
+    
         if (distance < minDistance) {
           minDistance = distance;
           closestEventIndex = index;
         }
       });
-      
-      if (closestEventIndex !== -1) {
-        setActiveEvent(closestEventIndex);
-      }
+    
+      // Once the last event is active, keep it active as we scroll past.
+      // This prevents the tracker from moving up again.
+      setActiveEvent(prevActiveEvent => {
+        if (closestEventIndex === events.length - 1) {
+            return events.length - 1;
+        }
+        if (prevActiveEvent === events.length - 1 && closestEventIndex < events.length -1) {
+             const lastEventRef = eventRefs.current[events.length - 1];
+             if(lastEventRef) {
+                const lastEventRect = lastEventRef.getBoundingClientRect();
+                // if last event is still in view (from top), keep it active
+                if(lastEventRect.top > 0) {
+                    return closestEventIndex;
+                }
+             }
+             return prevActiveEvent;
+        }
+        
+        return closestEventIndex !== -1 ? closestEventIndex : prevActiveEvent;
+      });
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
