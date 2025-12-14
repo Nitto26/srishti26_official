@@ -62,7 +62,6 @@ export function Timeline() {
       if (activeRef) {
          const eventCardRect = activeRef.getBoundingClientRect();
          const timelineTop = timelineRect.top;
-         // Position the tracker relative to the timeline component
          setTrackerY(eventCardRect.top - timelineTop + eventCardRect.height / 2);
       }
     };
@@ -91,8 +90,8 @@ export function Timeline() {
             />
 
             <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2" 
-              style={{ transform: `translateY(${trackerY}px) translateX(-50%)` }}
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
+              style={{ top: `${trackerY}px` }}
               />
 
             <div className="space-y-8">
