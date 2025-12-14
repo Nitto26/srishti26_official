@@ -16,7 +16,7 @@ export function PromoVideo() {
       </video>
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 text-white p-4">
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-in fade-in slide-in-from-bottom-12 duration-1000">
+        <h2 className="text-4xl md:text-6xl font-bold mb-4 font-headline text-white animate-in fade-in slide-in-from-bottom-12 duration-1000">
           DJ Concert
         </h2>
         <Button asChild size="lg" style={{
