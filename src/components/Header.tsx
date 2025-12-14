@@ -8,6 +8,13 @@ type HeaderProps = {
   show: boolean;
 };
 
+const navLinks = [
+  { href: "#timeline", label: "Timeline" },
+  { href: "#sponsors", label: "Sponsors" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
+
 export function Header({ show }: HeaderProps) {
   return (
     <header
@@ -20,6 +27,17 @@ export function Header({ show }: HeaderProps) {
         <SrishtiFestLogo className="w-12 h-12" />
         <span className="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</span>
       </Link>
+      <nav className="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
       <Button asChild style={{
         backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
         borderColor: 'hsl(var(--accent))'
