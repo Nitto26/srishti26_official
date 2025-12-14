@@ -38,19 +38,22 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
+      const activationPoint = window.innerHeight * 0.4; // Trigger point is 40% from top
       let closestEventIndex = -1;
       let minDistance = Infinity;
     
       const firstEventRef = eventRefs.current[0];
-      if (firstEventRef && firstEventRef.getBoundingClientRect().top > viewportCenter) {
+      if (!firstEventRef) return;
+
+      const firstEventRect = firstEventRef.getBoundingClientRect();
+      if (firstEventRect.top > activationPoint) {
         setActiveEvent(null);
         return;
       }
 
       const lastEventIndex = events.length - 1;
       const lastEventRef = eventRefs.current[lastEventIndex];
-      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < viewportCenter) {
+      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < activationPoint) {
         setActiveEvent(lastEventIndex);
         return;
       }
@@ -58,7 +61,7 @@ export function Timeline() {
       eventRefs.current.forEach((ref, index) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height / 2 - viewportCenter);
+        const distance = Math.abs(rect.top + rect.height / 2 - activationPoint);
     
         if (distance < minDistance) {
           minDistance = distance;
