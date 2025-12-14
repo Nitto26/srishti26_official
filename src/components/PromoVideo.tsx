@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 
 export function PromoVideo() {
   return (
@@ -33,6 +33,10 @@ export function PromoVideo() {
       <div className="absolute bottom-4 left-4 z-10 text-white flex items-center gap-2 text-lg font-bold bg-black/30 p-2 rounded-md">
         <Calendar className="w-5 h-5" />
         <span>20 Jan 2026</span>
+      </div>
+      <div className="absolute top-4 right-4 z-10 text-white flex items-center gap-2 text-lg font-bold bg-black/30 p-2 rounded-md">
+        <Clock className="w-5 h-5" />
+        <span>2 PM</span>
       </div>
     </section>
   );
