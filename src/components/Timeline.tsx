@@ -91,7 +91,7 @@ export function Timeline() {
             />
 
             <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-transform duration-300 ease-out will-change-transform -translate-x-1/2" 
               style={{ transform: `translateY(${trackerY}px) translateX(-50%)` }}
               />
 
@@ -113,7 +113,7 @@ export function Timeline() {
                       isActive={activeEvent === index}
                     />
                   </div>
-                  <div className={`absolute top-8 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2 md:top-1/2 md:-translate-y-1/2`} />
+                  <div className={`absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2`} />
                   <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
                 </div>
               ))}
