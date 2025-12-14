@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { SrishtiFestLogo } from "./SrishtiFestLogo";
 import { Button } from "./ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetClose,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu, X } from "lucide-react";
 
 type HeaderProps = {
   show: boolean;
@@ -24,8 +30,14 @@ export function Header({ show }: HeaderProps) {
       }`}
       aria-hidden={!show}
     >
-      <Link href="/" className="flex items-center gap-4" aria-label="SrishtiFest Home">
-        <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</span>
+      <Link
+        href="/"
+        className="flex items-center gap-4"
+        aria-label="SrishtiFest Home"
+      >
+        <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+          Srishti 2.6
+        </span>
       </Link>
       <nav className="hidden md:flex items-center gap-6">
         {navLinks.map((link) => (
@@ -38,16 +50,72 @@ export function Header({ show }: HeaderProps) {
           </Link>
         ))}
       </nav>
-      <Button asChild style={{
-        backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
-        borderColor: 'hsl(var(--accent))'
-      }}
-      className="border hover:scale-105 transition-transform"
-      >
-        <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
-          Register Now
-        </a>
-      </Button>
+      <div className="flex items-center gap-4">
+        <Button
+          asChild
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))",
+            borderColor: "hsl(var(--accent))",
+          }}
+          className="border hover:scale-105 transition-transform hidden md:flex"
+        >
+          <a
+            href="https://docs.google.com/forms"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Register Now
+          </a>
+        </Button>
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="flex flex-col h-full">
+                <div className="flex justify-between items-center border-b pb-4">
+                   <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+                    Srishti 2.6
+                   </span>
+                  <SheetClose asChild>
+                     <Button variant="ghost" size="icon">
+                       <X className="h-6 w-6" />
+                       <span className="sr-only">Close navigation menu</span>
+                     </Button>
+                  </SheetClose>
+                </div>
+                <nav className="flex flex-col gap-6 mt-8">
+                  {navLinks.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <div className="mt-auto">
+                   <Button asChild size="lg" className="w-full" style={{
+                      backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
+                      borderColor: 'hsl(var(--accent))'
+                    }}>
+                      <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
+                        Register Now
+                      </a>
+                   </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </header>
   );
 }
