@@ -6,7 +6,7 @@ export function PromoVideo() {
     <section className="relative w-full h-[70vh] overflow-hidden border-2 border-primary flex flex-col items-center justify-center text-center">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/djmp4.mp4"
+        src="/dj.mp4"
         autoPlay
         loop
         muted
