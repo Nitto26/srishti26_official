@@ -42,9 +42,9 @@ export function Timeline() {
 
       const firstEventRef = eventRefs.current[0];
       if (!firstEventRef) return;
-
-      const firstEventRect = firstEventRef.getBoundingClientRect();
-      if (firstEventRect.top > activationPoint) {
+      
+      const firstEventTop = firstEventRef.getBoundingClientRect().top;
+      if (firstEventTop > activationPoint) {
         setActiveEvent(null);
         return;
       }
