@@ -36,7 +36,7 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const activationPoint = window.innerHeight * 0.4; // Trigger point is 40% from top
+      const activationPoint = window.innerHeight * 0.2; // Trigger point is 20% from top
       let closestEventIndex = -1;
       let minDistance = Infinity;
 
