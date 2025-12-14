@@ -7,6 +7,9 @@ import {
   SheetContent,
   SheetClose,
   SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 
@@ -77,18 +80,18 @@ export function Header({ show }: HeaderProps) {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetHeader className="border-b pb-4 flex-row justify-between items-center">
+                <SheetTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</SheetTitle>
+                 <SheetClose asChild>
+                   <Button variant="ghost" size="icon">
+                     <X className="h-6 w-6" />
+                     <span className="sr-only">Close navigation menu</span>
+                   </Button>
+                </SheetClose>
+                <SheetDescription className="sr-only">Main navigation menu containing links to different sections of the page.</SheetDescription>
+              </SheetHeader>
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center border-b pb-4">
-                   <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-                    Srishti 2.6
-                   </span>
-                  <SheetClose asChild>
-                     <Button variant="ghost" size="icon">
-                       <X className="h-6 w-6" />
-                       <span className="sr-only">Close navigation menu</span>
-                     </Button>
-                  </SheetClose>
-                </div>
+                
                 <nav className="flex flex-col gap-6 mt-8">
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
