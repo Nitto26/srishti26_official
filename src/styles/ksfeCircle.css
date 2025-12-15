@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  overflow: hidden;
 }
 
 .ksfe-wrapper {
@@ -15,16 +16,6 @@
 
 .ksfe-text {
   max-width: 420px;
-}
-
-.ksfe-text h2 {
-  font-size: 36px;
-  margin-bottom: 15px;
-}
-
-.ksfe-text p {
-  opacity: 0.8;
-  line-height: 1.6;
 }
 
 .ksfe-circle {
@@ -50,6 +41,7 @@
 .ksfe-dot img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.4);
 }

@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import "../styles/ksfeCircle.css";
 
@@ -28,7 +29,7 @@ const data = [
   },
 ];
 
-export default function KsfeCircleCarousel() {
+export default function RoundAnimation() {
   const [active, setActive] = useState(0);
   const total = data.length;
   const angle = 360 / total;
@@ -38,8 +39,8 @@ export default function KsfeCircleCarousel() {
       <div className="ksfe-wrapper">
         {/* TEXT SLIDES */}
         <div className="ksfe-text">
-          <h2>{data[active].title}</h2>
-          <p>{data[active].text}</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">{data[active].title}</h2>
+          <p className="text-lg text-foreground/80">{data[active].text}</p>
         </div>
 
         {/* CIRCLE */}
