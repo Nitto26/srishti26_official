@@ -49,7 +49,7 @@ export function Intro({ opacity, transform }: IntroProps) {
           opacity: showVideo ? 1 : 0,
         }}
       >
-        <SrishtiFestLogo className="w-64 h-32 md:w-96 md:h-48 mb-4" />
+        <SrishtiFestLogo className="mb-4" />
         <Button asChild size="lg" style={{
             backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
             borderColor: 'hsl(var(--accent))'
