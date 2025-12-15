@@ -43,7 +43,7 @@ export function Intro({ opacity, transform }: IntroProps) {
       <div className="absolute inset-0 bg-black/30" />
 
       <div 
-        className="relative z-10 flex flex-col items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16"
+        className="relative z-10 flex flex-col items-center md:items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16"
         style={{ 
           transform: `translateY(${transform}px)`,
           opacity: showVideo ? 1 : 0,
