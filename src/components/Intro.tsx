@@ -1,6 +1,5 @@
 'use client';
 
-import { SrishtiFestLogo } from './SrishtiFestLogo';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
@@ -46,7 +45,6 @@ export function Intro({ opacity, transform }: IntroProps) {
           opacity: showVideo ? 1 : 0,
         }}
       >
-        <SrishtiFestLogo className="w-48 h-48 md:w-64 md:h-64" />
         <Button asChild size="lg" style={{
             backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
             borderColor: 'hsl(var(--accent))'
