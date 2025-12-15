@@ -50,16 +50,18 @@ export function Intro({ opacity, transform }: IntroProps) {
         }}
       >
         <SrishtiFestLogo className="mb-4" />
-        <Button asChild size="lg" style={{
-            backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
-            borderColor: 'hsl(var(--accent))'
-          }}
-          className="border hover:scale-105 transition-transform"
-          >
-            <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
-              Register Now
-            </a>
-          </Button>
+        <div className="w-full flex justify-end">
+          <Button asChild size="lg" style={{
+              backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
+              borderColor: 'hsl(var(--accent))'
+            }}
+            className="border hover:scale-105 transition-transform"
+            >
+              <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
+                Register Now
+              </a>
+            </Button>
+        </div>
       </div>
 
       <div className="absolute bottom-8 right-8 z-10">
