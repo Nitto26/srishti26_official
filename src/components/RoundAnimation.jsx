@@ -14,7 +14,7 @@ export default function RoundAnimation() {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="scene">
+    <div className="scene" style={{background: 'radial-gradient(circle at center, #0b1c3d, #000814)'}}>
       <div
         className={`orbit ${active ? "rotate" : ""}`}
         onClick={() => setActive(true)}

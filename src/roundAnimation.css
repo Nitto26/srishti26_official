@@ -1,16 +1,10 @@
-body {
-    margin: 0;
-    background: radial-gradient(circle at center, #0b1c3d, #000814);
-    overflow: hidden;
-    font-family: "Poppins", sans-serif;
-  }
-  
   .scene {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    font-family: "Poppins", sans-serif;
   }
   
   .orbit {
