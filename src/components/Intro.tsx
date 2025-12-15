@@ -31,7 +31,7 @@ export function Intro({ opacity, transform }: IntroProps) {
     >
       <video
         className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-50' : 'opacity-0'}`}
-        src="/dj.mp4"
+        src="/hero.webm"
         autoPlay
         loop
         muted
