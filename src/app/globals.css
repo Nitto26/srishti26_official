@@ -79,4 +79,8 @@
       transform: translateX(-50%);
     }
   }
+
+  .curved-bottom {
+    clip-path: ellipse(100% 70% at 50% 100%);
+  }
 }
