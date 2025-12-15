@@ -55,7 +55,7 @@ export default function RoundAnimation() {
               key={i}
               className={`ksfe-dot ${active === i ? "active" : ""}`}
               style={{
-                transform: `rotate(${i * angle}deg) translate(160px) rotate(-${i *
+                transform: `rotate(${i * angle}deg) translate(200px) rotate(-${i *
                   angle}deg)`,
               }}
               onClick={() => setActive(i)}

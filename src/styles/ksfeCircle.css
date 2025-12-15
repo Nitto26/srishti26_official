@@ -1,3 +1,12 @@
+@keyframes rotate-circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .ksfe-section {
   min-height: 100vh;
   background: #000814;
@@ -20,19 +29,20 @@
 
 .ksfe-circle {
   position: relative;
-  width: 360px;
-  height: 360px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   transition: transform 1s ease-in-out;
+  animation: rotate-circle 30s linear infinite;
 }
 
 .ksfe-dot {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 70px;
-  height: 70px;
-  margin: -35px;
+  width: 100px;
+  height: 100px;
+  margin: -50px;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 1s ease;
