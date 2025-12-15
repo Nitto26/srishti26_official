@@ -51,7 +51,12 @@ export function Countdown({ targetDate }: CountdownProps) {
     <div className="bg-black/30 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary/20 shadow-lg">
       <div className="flex items-center justify-center gap-4 md:gap-8">
         {timeLeft.days > 0 ? (
-          <TimeCard value={timeLeft.days} unit="Days" />
+          <div className="flex flex-col items-center">
+            <div className="text-xs md:text-sm font-medium text-white/70 uppercase tracking-widest mb-1">
+              Countdown
+            </div>
+            <TimeCard value={timeLeft.days} unit="Days" />
+          </div>
         ) : (
           <>
             <TimeCard value={timeLeft.hours} unit="Hours" />
