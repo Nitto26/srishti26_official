@@ -11,6 +11,7 @@ import { PromoVideo } from "@/components/PromoVideo";
 import { Sponsors } from "@/components/Sponsors";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { ImageGallery } from "@/components/ImageGallery";
+import RoundAnimation from "@/components/RoundAnimation";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -52,11 +53,12 @@ export default function Home() {
       <Header show={showHeader} />
       <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
+        <RoundAnimation />
         <Timeline />
-        <PromoVideo />
         <Sponsors />
         <PhotoGallery />
         <ImageGallery />
+        <PromoVideo />
         <About />
         <Contact />
       </div>
