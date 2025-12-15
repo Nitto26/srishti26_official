@@ -40,7 +40,7 @@ export function Timeline() {
       let newActiveEvent: number | null = null;
     
       // Find the last event that has passed the activation point.
-      for (let i = eventRefs.current.length - 1; i >= 0; i--) {
+      for (let i = events.length - 1; i >= 0; i--) {
         const ref = eventRefs.current[i];
         if (ref && ref.getBoundingClientRect().top < activationPoint) {
           newActiveEvent = i;
@@ -91,8 +91,8 @@ export function Timeline() {
             />
 
             <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
-              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0 }}
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2" 
+              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0, transform: `translateX(-50%) translateY(-50%)` }}
               />
 
             <div className="space-y-8">
@@ -110,7 +110,7 @@ export function Timeline() {
                     <EventCard
                       event={event}
                       orientation={index % 2 === 0 ? 'right' : 'left'}
-                      isActive={activeEvent === index}
+                      isActive={activeEvent !== null && index <= activeEvent}
                     />
                   </div>
                   <div 
