@@ -19,7 +19,9 @@ export function EventCard({ event, orientation, isActive }: EventCardProps) {
   const transformClass = orientation === 'left' ? 'md:translate-x-0' : 'md:translate-x-0';
 
   return (
-    <div className={`transition-all duration-700 ease-out transform ${animationClass} ${transformClass} ${isActive ? (orientation === 'left' ? 'animate-in fade-in-0 slide-in-from-left-12' : 'animate-in fade-in-0 slide-in-from-right-12') : ''} duration-1000`}>
+    <div 
+      data-event-card // Add data attribute to easily select this element
+      className={`transition-all duration-700 ease-out transform ${animationClass} ${transformClass} ${isActive ? (orientation === 'left' ? 'animate-in fade-in-0 slide-in-from-left-12' : 'animate-in fade-in-0 slide-in-from-right-12') : ''} duration-1000`}>
       <Card className="overflow-hidden bg-card/80 backdrop-blur-sm border-2 border-primary/20 hover:border-accent transition-colors duration-300 shadow-lg shadow-primary/10">
         <div className="relative h-32 w-full">
           <Image
