@@ -48,7 +48,7 @@ export function Countdown({ targetDate }: CountdownProps) {
   });
 
   return (
-    <div className="bg-black/30 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary/20 shadow-lg">
+    <div className="p-4 md:p-6">
       <div className="flex items-center justify-center gap-4 md:gap-8">
         {timeLeft.days > 0 ? (
           <div className="flex flex-col items-center">
