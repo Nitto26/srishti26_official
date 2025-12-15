@@ -3,6 +3,7 @@
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
+import { Countdown } from './Countdown';
 
 type IntroProps = {
   opacity: number;
@@ -21,6 +22,8 @@ export function Intro({ opacity, transform }: IntroProps) {
       clearTimeout(videoTimer);
     };
   }, []);
+
+  const eventDate = "2026-01-20T00:00:00";
 
   return (
     <div
@@ -56,6 +59,11 @@ export function Intro({ opacity, transform }: IntroProps) {
             </a>
           </Button>
       </div>
+
+      <div className="absolute bottom-8 right-8 z-10">
+        <Countdown targetDate={eventDate} />
+      </div>
+
       <div className="absolute bottom-8 animate-bounce z-10" aria-hidden="true">
         <ChevronDown className="w-8 h-8 text-foreground/50" />
       </div>
