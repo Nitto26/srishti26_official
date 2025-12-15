@@ -3,7 +3,7 @@ import { Calendar, Clock } from "lucide-react";
 
 export function PromoVideo() {
   return (
-    <section className="relative w-full h-[70vh] overflow-hidden flex flex-col items-center justify-center text-center curved-bottom bg-background">
+    <section className="relative w-full h-[70vh] overflow-hidden flex flex-col items-center justify-center text-center bg-background">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/dj.mp4"
