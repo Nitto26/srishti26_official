@@ -36,7 +36,7 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const activationPoint = window.innerHeight * 0.4;
+      const activationPoint = window.innerHeight * 0.2; // Halved the scroll distance
       let newActiveEvent: number | null = null;
     
       for (let i = events.length - 1; i >= 0; i--) {
@@ -45,6 +45,11 @@ export function Timeline() {
           newActiveEvent = i;
           break;
         }
+      }
+      
+      const lastEventRef = eventRefs.current[events.length - 1];
+      if (lastEventRef && lastEventRef.getBoundingClientRect().top < activationPoint) {
+          newActiveEvent = events.length - 1;
       }
     
       setActiveEvent(newActiveEvent);
@@ -93,8 +98,8 @@ export function Timeline() {
             />
 
             <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2" 
-              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0, transform: `translateX(-50%) translateY(-50%)` }}
+              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
+              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0 }}
               />
 
             <div className="space-y-8">
