@@ -4,6 +4,7 @@
 import { SrishtiFestLogo } from './SrishtiFestLogo';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Button } from './ui/button';
 
 type IntroProps = {
   opacity: number;
@@ -40,16 +41,22 @@ export function Intro({ opacity, transform }: IntroProps) {
       <div className="absolute inset-0 bg-black/30" />
 
       <div 
-        className="relative z-10 flex flex-col items-center gap-2 will-change-transform transition-opacity duration-1000"
+        className="relative z-10 flex flex-col items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16"
         style={{ 
           transform: `translateY(${transform}px)`,
-          opacity: showVideo ? 0 : 1, // Fade out logo when video appears
         }}
       >
-        <SrishtiFestLogo className="w-64 h-64 md:w-96 md:h-96" />
-        <h1 className="text-2xl md:text-4xl font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-          SRISHTI 2.6
-        </h1>
+        <SrishtiFestLogo className="w-48 h-48 md:w-64 md:h-64" />
+        <Button asChild size="lg" style={{
+            backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
+            borderColor: 'hsl(var(--accent))'
+          }}
+          className="border hover:scale-105 transition-transform"
+          >
+            <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
+              Register Now
+            </a>
+          </Button>
       </div>
       <div className="absolute bottom-8 animate-bounce z-10" aria-hidden="true">
         <ChevronDown className="w-8 h-8 text-foreground/50" />
