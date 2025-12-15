@@ -36,39 +36,19 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const activationPoint = window.innerHeight * 0.2; // Trigger point is 20% from top
-      let closestEventIndex = -1;
-      let minDistance = Infinity;
-
-      const firstEventRef = eventRefs.current[0];
-      if (!firstEventRef) return;
-      
-      const firstEventTop = firstEventRef.getBoundingClientRect().top;
-      if (firstEventTop > activationPoint) {
-        setActiveEvent(null);
-        return;
-      }
-      
-      const lastEventIndex = events.length - 1;
-      const lastEventRef = eventRefs.current[lastEventIndex];
-
-      if (lastEventRef && lastEventRef.getBoundingClientRect().bottom < activationPoint) {
-        setActiveEvent(lastEventIndex);
-        return;
-      }
+      const activationPoint = window.innerHeight * 0.5; // Trigger when event top hits viewport center
+      let newActiveEvent: number | null = null;
     
-      eventRefs.current.forEach((ref, index) => {
-        if (!ref) return;
-        const rect = ref.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height / 2 - activationPoint);
-    
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestEventIndex = index;
+      // Find the last event that has passed the activation point.
+      for (let i = eventRefs.current.length - 1; i >= 0; i--) {
+        const ref = eventRefs.current[i];
+        if (ref && ref.getBoundingClientRect().top < activationPoint) {
+          newActiveEvent = i;
+          break;
         }
-      });
+      }
     
-      setActiveEvent(closestEventIndex !== -1 ? closestEventIndex : null);
+      setActiveEvent(newActiveEvent);
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
