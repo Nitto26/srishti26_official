@@ -36,10 +36,9 @@ export function Timeline() {
     if (!headerVisible) return;
 
     const handleScroll = () => {
-      const activationPoint = window.innerHeight * 0.4; // Trigger when event top hits 40% of viewport height
+      const activationPoint = window.innerHeight * 0.4;
       let newActiveEvent: number | null = null;
     
-      // Find the last event that has passed the activation point.
       for (let i = events.length - 1; i >= 0; i--) {
         const ref = eventRefs.current[i];
         if (ref && ref.getBoundingClientRect().top < activationPoint) {
@@ -52,14 +51,14 @@ export function Timeline() {
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [headerVisible]);
 
   useEffect(() => {
     if (activeEvent === null || !timelineRef.current) {
-      setTrackerY(-100); // Hide tracker if no event is active
+      setTrackerY(-100);
       return;
     };
     
@@ -67,11 +66,9 @@ export function Timeline() {
     const timelineRect = timelineRef.current.getBoundingClientRect();
     
     if (activeEventContainerRef) {
-       // Find the actual card element within the container
        const cardElement = activeEventContainerRef.querySelector('[data-event-card]');
        if (cardElement) {
         const cardRect = cardElement.getBoundingClientRect();
-        // Calculate the center of the card relative to the timeline container
         const newTrackerY = (cardRect.top - timelineRect.top) + (cardRect.height / 2);
         setTrackerY(newTrackerY);
        }
@@ -118,15 +115,6 @@ export function Timeline() {
                       isActive={activeEvent !== null && index <= activeEvent}
                     />
                   </div>
-                   <div 
-                    className="absolute top-1/2 h-5 w-5 rounded-full bg-background border-2 border-primary/50 -translate-x-1/2 left-4 md:left-1/2 -translate-y-1/2" 
-                    style={{
-                      // Use the card's center for the hollow circle's position
-                      top: eventRefs.current[index]?.querySelector('[data-event-card]')?.getBoundingClientRect().top
-                        ? (eventRefs.current[index]!.querySelector('[data-event-card]')!.getBoundingClientRect().top - timelineRef.current!.getBoundingClientRect().top) + (eventRefs.current[index]!.querySelector('[data-event-card]')!.getBoundingClientRect().height / 2)
-                        : '50%'
-                    }}
-                  />
                   <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
                 </div>
               ))}
