@@ -50,13 +50,17 @@ export function Countdown({ targetDate }: CountdownProps) {
   return (
     <div className="bg-black/30 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary/20 shadow-lg">
       <div className="flex items-center justify-center gap-4 md:gap-8">
-        <TimeCard value={timeLeft.days} unit="Days" />
-        <span className="text-3xl md:text-4xl font-bold text-accent -translate-y-2">:</span>
-        <TimeCard value={timeLeft.hours} unit="Hours" />
-        <span className="text-3xl md:text-4xl font-bold text-accent -translate-y-2">:</span>
-        <TimeCard value={timeLeft.minutes} unit="Minutes" />
-        <span className="text-3xl md:text-4xl font-bold text-accent -translate-y-2">:</span>
-        <TimeCard value={timeLeft.seconds} unit="Seconds" />
+        {timeLeft.days > 0 ? (
+          <TimeCard value={timeLeft.days} unit="Days" />
+        ) : (
+          <>
+            <TimeCard value={timeLeft.hours} unit="Hours" />
+            <span className="text-3xl md:text-4xl font-bold text-accent -translate-y-2">:</span>
+            <TimeCard value={timeLeft.minutes} unit="Minutes" />
+            <span className="text-3xl md:text-4xl font-bold text-accent -translate-y-2">:</span>
+            <TimeCard value={timeLeft.seconds} unit="Seconds" />
+          </>
+        )}
       </div>
     </div>
   );
