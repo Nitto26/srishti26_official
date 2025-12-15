@@ -44,6 +44,7 @@ export function Intro({ opacity, transform }: IntroProps) {
         className="relative z-10 flex flex-col items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16"
         style={{ 
           transform: `translateY(${transform}px)`,
+          opacity: showVideo ? 1 : 0, // Keep it visible when video shows
         }}
       >
         <SrishtiFestLogo className="w-48 h-48 md:w-64 md:h-64" />
