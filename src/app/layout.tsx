@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import './ImageGallery.css';
-import '../roundAnimation.css';
+import '../styles/ksfeCircle.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
