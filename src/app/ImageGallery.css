@@ -1,0 +1,40 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+}
+
+.gallery:hover .image {
+    filter: grayscale(100%);
+}
+
+.gallery .image {
+    position: relative;
+    height: 300px;
+    width: 100px;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), filter 0.5s ease;
+}
+
+.gallery .image:hover {
+    width: 600px;
+    filter: grayscale(0%);
+}
+
+.gallery .image img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    pointer-events: none;
+}

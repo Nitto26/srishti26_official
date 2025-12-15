@@ -10,6 +10,7 @@ import { Instagram } from "lucide-react";
 import { PromoVideo } from "@/components/PromoVideo";
 import { Sponsors } from "@/components/Sponsors";
 import { PhotoGallery } from "@/components/PhotoGallery";
+import { ImageGallery } from "@/components/ImageGallery";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
@@ -55,6 +56,7 @@ export default function Home() {
         <Timeline />
         <Sponsors />
         <PhotoGallery />
+        <ImageGallery />
         <About />
         <Contact />
       </div>
