@@ -1,132 +1,82 @@
 'use client';
 
 import { events } from '@/lib/events';
-import { EventCard } from './EventCard';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
+import Image from 'next/image';
 
 export function Timeline() {
-  const [activeEvent, setActiveEvent] = useState<number | null>(null);
-  const [headerVisible, setHeaderVisible] = useState(false);
-  const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const headerRef = useRef<HTMLHeadingElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const [trackerY, setTrackerY] = useState(-100);
-
   useEffect(() => {
-    eventRefs.current = eventRefs.current.slice(0, events.length);
+    const progressLine = document.getElementById('progress-line');
+    const items = document.querySelectorAll('.timeline-item');
+    const wrapper = document.getElementById('main-timeline');
 
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true);
-          headerObserver.disconnect();
+    if (!progressLine || !wrapper) return;
+
+    function updateTimeline() {
+        if (!wrapper) return;
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        let latestActiveMarkerCenter = 0;
+
+        items.forEach((item) => {
+            const marker = item.querySelector('.marker') as HTMLElement;
+            if (!marker) return;
+            const markerRect = marker.getBoundingClientRect();
+
+            // Active trigger point: 75% from top of screen
+            if (markerRect.top < windowHeight * 0.75) {
+                item.classList.add('active');
+                const relativePos = markerRect.top - wrapperRect.top + (markerRect.height / 2);
+                if (relativePos > latestActiveMarkerCenter) latestActiveMarkerCenter = relativePos;
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        if (progressLine) {
+            progressLine.style.height = latestActiveMarkerCenter + 'px';
         }
-      },
-      { rootMargin: '0px 0px -150px 0px' }
-    );
-    if (headerRef.current) {
-      headerObserver.observe(headerRef.current);
     }
-    
-    return () => headerObserver.disconnect();
 
+    window.addEventListener('scroll', updateTimeline);
+    window.addEventListener('resize', updateTimeline);
+    updateTimeline();
+
+    return () => {
+        window.removeEventListener('scroll', updateTimeline);
+        window.removeEventListener('resize', updateTimeline);
+    }
   }, []);
 
-  useEffect(() => {
-    if (!headerVisible) return;
-
-    const handleScroll = () => {
-      const activationPoint = window.innerHeight * 0.2; // Halved the scroll distance
-      let newActiveEvent: number | null = null;
-    
-      for (let i = events.length - 1; i >= 0; i--) {
-        const ref = eventRefs.current[i];
-        if (ref && ref.getBoundingClientRect().top < activationPoint) {
-          newActiveEvent = i;
-          break;
-        }
-      }
-      
-      const lastEventRef = eventRefs.current[events.length - 1];
-      if (lastEventRef && lastEventRef.getBoundingClientRect().top < activationPoint) {
-          newActiveEvent = events.length - 1;
-      }
-    
-      setActiveEvent(newActiveEvent);
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [headerVisible]);
-
-  useEffect(() => {
-    if (activeEvent === null || !timelineRef.current) {
-      setTrackerY(-100);
-      return;
-    };
-    
-    const activeEventContainerRef = eventRefs.current[activeEvent];
-    const timelineRect = timelineRef.current.getBoundingClientRect();
-    
-    if (activeEventContainerRef) {
-       const cardElement = activeEventContainerRef.querySelector('[data-event-card]');
-       if (cardElement) {
-        const cardRect = cardElement.getBoundingClientRect();
-        const newTrackerY = (cardRect.top - timelineRect.top) + (cardRect.height / 2);
-        setTrackerY(newTrackerY);
-       }
-    }
-  }, [activeEvent]);
-
   return (
-    <div className="py-24" id="timeline" ref={timelineRef}>
-      <div className="container mx-auto px-4">
-        <h2
-          ref={headerRef}
-          className={`text-4xl md:text-5xl font-bold text-center mb-20 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        >
-          Event Timeline
+    <div className="container mx-auto px-4 py-24" id="timeline">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-24 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+            Event Timeline
         </h2>
-        {headerVisible && (
-          <div className="relative">
-             <div
-              className="absolute left-4 md:left-1/2 top-0 w-0.5 md:-translate-x-1/2 bg-accent/20 transition-all duration-300 ease-out"
-              aria-hidden="true"
-              style={{ height: trackerY > 0 ? `${trackerY}px`: '0px' }}
-            />
-
-            <div 
-              className="absolute left-4 md:left-1/2 w-5 h-5 rounded-full bg-primary border-4 border-background transition-all duration-300 ease-out will-change-transform -translate-x-1/2 -translate-y-1/2" 
-              style={{ top: `${trackerY}px`, opacity: trackerY > 0 ? 1 : 0 }}
-              />
-
-            <div className="space-y-8">
-              {events.map((event, index) => (
-                <div
-                  key={event.id}
-                  ref={el => eventRefs.current[index] = el}
-                  className="relative md:grid md:grid-cols-2 md:gap-x-12 items-center"
-                >
-                  <div
-                    className={`pl-12 md:pl-0 ${
-                      index % 2 === 0 ? 'md:order-2 md:pl-8' : 'md:order-1 md:pr-8'
-                    }`}
-                  >
-                    <EventCard
-                      event={event}
-                      orientation={index % 2 === 0 ? 'right' : 'left'}
-                      isActive={activeEvent !== null && index <= activeEvent}
-                    />
-                  </div>
-                  <div className={`${ index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`} />
-                </div>
-              ))}
+        <div className="timeline-wrapper" id="main-timeline">
+            <div className="line-track"></div>
+            <div id="progress-line" className="line-progress"></div>
+            <div className="space-y-24 md:space-y-32">
+                {events.map((event, index) => (
+                    <div key={event.id} className="timeline-item relative md:grid md:grid-cols-2 items-center">
+                        <div className="marker"></div>
+                        <div className={`reveal-card pl-12 md:pl-16 ${index % 2 === 0 ? 'md:col-start-2' : ''}`}>
+                            <div className={`glass-card group hover:border-accent/50 transition-all ${index % 2 !== 0 ? 'md:text-right' : ''}`}>
+                                <div className="relative h-44 w-full opacity-60 group-hover:opacity-100 transition-opacity">
+                                    <Image src={event.image.url} alt={event.title} className="object-cover w-full h-full" layout="fill" />
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-2xl font-bold text-white mb-2">{event.title}</h3>
+                                    <p className={`text-slate-400 text-sm leading-relaxed mb-4 ${index % 2 !== 0 ? 'text-left md:text-right' : 'text-left'}`}>{event.description}</p>
+                                    <div className={`flex gap-4 text-xs font-mono font-bold tracking-widest uppercase ${index % 2 === 0 ? 'text-accent' : 'text-primary'} ${index % 2 !== 0 ? 'md:justify-end' : ''}`}>
+                                        <span>{event.date}</span><span>{event.time}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
-          </div>
-        )}
-      </div>
+        </div>
     </div>
   );
 }

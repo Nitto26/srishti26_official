@@ -1,0 +1,83 @@
+/* 1. Building Line Animation */
+.timeline-wrapper { position: relative; width: 100%; }
+.line-track {
+    position: absolute;
+    top: 0; bottom: 0; width: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    left: 20px;
+}
+.line-progress {
+    position: absolute;
+    top: 0; width: 2px;
+    background: linear-gradient(to bottom, #a855f7, #22d3ee);
+    left: 20px; height: 0;
+    z-index: 10; transition: height 0.3s ease-out;
+    box-shadow: 0 0 15px #22d3ee;
+}
+.line-progress::after {
+    content: ''; position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%); width: 10px; height: 10px;
+    background: #22d3ee; border-radius: 50%;
+    box-shadow: 0 0 20px #22d3ee, 0 0 40px #22d3ee;
+}
+
+@media (min-width: 768px) {
+    .line-track, .line-progress { left: 50%; transform: translateX(-50%); }
+}
+
+.timeline-item .marker {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #a855f7;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: 5;
+}
+
+@media (min-width: 768px) {
+    .timeline-item .marker {
+        left: 50%;
+    }
+}
+
+.timeline-item.active .marker {
+    background: #22d3ee;
+    box-shadow: 0 0 15px #22d3ee;
+}
+
+
+/* 2. Blur Transition Effect */
+.reveal-card {
+    opacity: 0;
+    filter: blur(20px); /* Heavy initial blur */
+    transform: translateY(30px) scale(0.98);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: filter, opacity, transform;
+}
+
+.active .reveal-card {
+    opacity: 1;
+    filter: blur(0px); /* Clear focus on active */
+    transform: translateY(0) scale(1);
+}
+
+/* 3. Transparent Glass Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: border-color 0.5s ease, background 0.5s ease;
+}
+
+.active .glass-card {
+    border-color: rgba(34, 211, 238, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
