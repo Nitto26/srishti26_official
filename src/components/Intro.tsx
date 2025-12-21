@@ -28,46 +28,49 @@ export function Intro({ opacity, transform }: IntroProps) {
 
   return (
     <div
-      className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-background transition-opacity duration-1000"
+      className="fixed inset-0 z-10 flex items-center justify-center bg-background transition-opacity duration-1000"
       style={{ opacity }}
       aria-hidden={opacity < 0.1}
     >
-      <video
-        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${showVideo ? 'opacity-50' : 'opacity-0'}`}
-        src="/hero.webm"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="hero-section-base">
+        <video
+          className={`hero-video-frame transition-opacity duration-1000 ${showVideo ? 'opacity-50' : 'opacity-0'}`}
+          src="/hero.webm"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="glow-layer" />
 
-      <div 
-        className="relative z-10 flex flex-col items-center md:items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16"
-        style={{ 
-          transform: `translateY(${transform}px)`,
-          opacity: showVideo ? 1 : 0,
-        }}
-      >
-        <SrishtiFestLogo className="mb-4" />
-        <Button asChild size="lg" style={{
-            backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
-            borderColor: 'hsl(var(--accent))'
+        <div 
+          className="relative z-10 flex flex-col items-center md:items-start gap-4 will-change-transform transition-opacity duration-1000 w-full max-w-6xl px-8 md:px-16 mb-20"
+          style={{ 
+            transform: `translateY(${transform}px)`,
+            opacity: showVideo ? 1 : 0,
           }}
-          className="border hover:scale-105 transition-transform"
-          >
-            <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
-              Register Now
-            </a>
-          </Button>
-      </div>
+        >
+          <SrishtiFestLogo className="mb-4" />
+          <Button asChild size="lg" style={{
+              backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
+              borderColor: 'hsl(var(--accent))'
+            }}
+            className="border hover:scale-105 transition-transform"
+            >
+              <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
+                Register Now
+              </a>
+            </Button>
+        </div>
 
-      <div className="absolute bottom-8 right-8 z-10">
-        <Countdown targetDate={eventDate} />
-      </div>
+        <div className="absolute bottom-8 right-8 z-10">
+          <Countdown targetDate={eventDate} />
+        </div>
 
-      <div className="absolute bottom-8 animate-bounce z-10" aria-hidden="true">
-        <ChevronDown className="w-8 h-8 text-foreground/50" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10" aria-hidden="true">
+          <ChevronDown className="w-8 h-8 text-foreground/50" />
+        </div>
       </div>
     </div>
   );
