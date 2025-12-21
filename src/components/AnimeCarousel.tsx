@@ -173,19 +173,21 @@ export function AnimeCarousel() {
                       </div>
                   </div>
 
-                  <div className="pagination">
-                      <div className="item active">
-                          <img src="/KSFE_files/op.jpg" alt="One Piece" />
-                      </div>
-                      <div className="item">
-                          <img src="/KSFE_files/n.jpg" alt="Naruto" />
-                      </div>
-                      <div className="item">
-                          <img src="/KSFE_files/g.jpg" alt="Dragon Ball Z" />
-                      </div>
-                      <div className="item">
-                          <img src="/KSFE_files/ds.jpg" alt="Demon Slayer" />
-                      </div>
+                  <div className="pagin_outr">
+                    <div className="pagination">
+                        <div className="item active">
+                            <img src="/KSFE_files/op.jpg" alt="One Piece" />
+                        </div>
+                        <div className="item">
+                            <img src="/KSFE_files/n.jpg" alt="Naruto" />
+                        </div>
+                        <div className="item">
+                            <img src="/KSFE_files/g.jpg" alt="Dragon Ball Z" />
+                        </div>
+                        <div className="item">
+                            <img src="/KSFE_files/ds.jpg" alt="Demon Slayer" />
+                        </div>
+                    </div>
                   </div>
                   <div className="slide_nav">
                       <div className="swiper-button-prev prev"></div>
