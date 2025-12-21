@@ -59,7 +59,7 @@ export function Timeline() {
                 {events.map((event, index) => (
                     <div key={event.id} className="timeline-item relative md:grid md:grid-cols-2 items-center">
                         <div className="marker"></div>
-                        <div className={`reveal-card pl-12 md:pl-16 ${index % 2 === 0 ? 'md:col-start-2' : ''}`}>
+                        <div className={`reveal-card pl-12 ${index % 2 === 0 ? 'md:col-start-2 md:pl-16' : 'md:pr-16 md:pl-0'}`}>
                             <div className={`glass-card group hover:border-accent/50 transition-all ${index % 2 !== 0 ? 'md:text-right' : ''}`}>
                                 <div className="relative h-44 w-full opacity-60 group-hover:opacity-100 transition-opacity">
                                     <Image src={event.image.url} alt={event.title} className="object-cover w-full h-full" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
