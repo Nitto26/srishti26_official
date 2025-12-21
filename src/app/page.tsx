@@ -15,6 +15,7 @@ import { ImageGallery } from "@/components/ImageGallery";
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
   const [introScale, setIntroScale] = useState(1);
+  const [introBlur, setIntroBlur] = useState(0);
   const [showHeader, setShowHeader] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -34,6 +35,9 @@ export default function Home() {
 
       const scale = Math.max(0.8, 1 - scrollY / (fadeOutDistance * 2));
       setIntroScale(scale);
+
+      const blur = Math.min(8, scrollY / 100);
+      setIntroBlur(blur);
       
       setShowHeader(scrollY > fadeOutDistance);
     };
@@ -48,7 +52,7 @@ export default function Home() {
 
   return (
     <main>
-      <Intro opacity={introOpacity} scale={introScale} />
+      <Intro opacity={introOpacity} scale={introScale} blur={introBlur} />
       <Header show={showHeader} />
       <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>

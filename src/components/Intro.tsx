@@ -9,9 +9,10 @@ import { SrishtiFestLogo } from './SrishtiFestLogo';
 type IntroProps = {
   opacity: number;
   scale: number;
+  blur: number;
 };
 
-export function Intro({ opacity, scale }: IntroProps) {
+export function Intro({ opacity, scale, blur }: IntroProps) {
   const [showVideo, setShowVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -49,6 +50,7 @@ export function Intro({ opacity, scale }: IntroProps) {
           loop
           muted
           playsInline
+          style={{ filter: `blur(${blur}px)` }}
         />
         
         {!isMobile && (
