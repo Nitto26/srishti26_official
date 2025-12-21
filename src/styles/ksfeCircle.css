@@ -83,8 +83,8 @@
     align-items: center;
     justify-content: center;
     top: 0;
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     padding-top: 0%;
     border-radius: 50%;
     pointer-events: auto;
@@ -179,9 +179,9 @@
         height: 300px;
     }
     .pagination .item {
-        width: 60px;
-        height: 60px;
-        margin: -30px;
+        width: 80px;
+        height: 80px;
+        margin: -40px;
         transform-origin: 0px 150px;
     }
     .slide_nav {
