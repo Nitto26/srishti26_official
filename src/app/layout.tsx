@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import './ImageGallery.css';
-import '../styles/ksfeCircle.css';
 import './Intro.css';
 import './Timeline.css';
 import { Toaster } from "@/components/ui/toaster";
