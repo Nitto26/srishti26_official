@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from 'react';
-import Script from 'next/script';
 
 export function AnimeCarousel() {
   useEffect(() => {
@@ -121,7 +120,7 @@ export function AnimeCarousel() {
 
       CustomCarousel.prototype.arrangeDots = function () {
         if (!this.dots) return;
-        for (var i = 0; i < this.dotsN; i++) {
+        for (var i = 0; i < this.dots.length; i++) {
           this.dots[i].style.transform = 'rotate(' + 360 / this.dotsN * i + 'deg)';
         }
       };
@@ -142,7 +141,6 @@ export function AnimeCarousel() {
   }, []);
 
   return (
-    <>
       <section className="ksfe-section">
           <div className="ksfe-wrapper">
               <div className="circle-carousel" data-speed="1000" data-autoplay="6000">
@@ -196,8 +194,5 @@ export function AnimeCarousel() {
               </div>
           </div>
       </section>
-      <Script src="/KSFE_files/jquery.3.4.1.min.js" strategy="lazyOnload" />
-      <Script src="/KSFE_files/main.js" strategy="lazyOnload" />
-    </>
   );
 }
