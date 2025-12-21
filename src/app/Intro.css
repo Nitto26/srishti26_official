@@ -24,7 +24,7 @@
 .video-content-container {
   position: relative;
   width: 90%;
-  max-width: 1200px; /* Increased size */
+  max-width: 1400px; /* Increased size for desktop */
   aspect-ratio: 16 / 9;
   border-radius: 2rem;
   overflow: hidden;
@@ -42,8 +42,8 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Adjusted for top and bottom content */
-  padding: 2rem 3rem;
+  justify-content: space-between;
+  padding: 3rem 4rem; /* Adjusted padding */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
@@ -64,4 +64,52 @@
   color: #E50914; /* Netflix Red */
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7), 0px 0px 20px rgba(0, 0, 0, 0.5);
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .video-content-container {
+    max-width: 95%;
+    border-radius: 1.5rem;
+  }
+  .content-overlay {
+    padding: 2rem 2.5rem;
+  }
+  .main-content p {
+    max-width: 80%;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hero-section-base {
+    height: 80vh; /* Adjust height for mobile */
+  }
+  .video-content-container {
+    width: 95%;
+    aspect-ratio: 9 / 12; /* More vertical aspect ratio for mobile */
+    border-radius: 1rem;
+  }
+  .content-overlay {
+    padding: 1.5rem;
+    justify-content: flex-end; /* Stack content at the bottom */
+  }
+  .main-content {
+    margin-bottom: 2rem;
+  }
+   .main-content p {
+    font-size: 0.875rem;
+    max-width: 100%;
+  }
+  .main-content .flex.items-center.gap-4 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .countdown-container {
+    justify-content: center;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
 }

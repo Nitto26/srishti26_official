@@ -52,11 +52,11 @@ export function Intro({ opacity }: IntroProps) {
           />
           <div className="content-overlay">
             <div className="main-content">
-              <SrishtiFestLogo className="w-1/3 mb-4" />
-              <p className="text-sm text-white/80 max-w-lg leading-relaxed shadow-black/50 [text-shadow:0_1px_4px_var(--tw-shadow-color)]">
+              <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-24 md:h-32 mb-4" />
+              <p className="text-sm md:text-base text-white/80 max-w-lg leading-relaxed shadow-black/50 [text-shadow:0_1px_4px_var(--tw-shadow-color)]">
                 Srishti 2.6 is the annual techno-cultural festival, a vibrant celebration of creativity, innovation, and talent. Join us for an unforgettable experience.
               </p>
-              <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center gap-4 mt-6">
                 <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold">
                   <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
                     <Play className="mr-2 h-5 w-5" />
