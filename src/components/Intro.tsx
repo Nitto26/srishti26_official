@@ -27,7 +27,7 @@ export function Intro({ opacity }: IntroProps) {
 
   return (
     <div
-      className="fixed inset-0 z-10 bg-background transition-opacity duration-1000"
+      className="fixed inset-0 z-10 bg-background transition-opacity duration-1000 curved-bottom"
       style={{ opacity }}
       aria-hidden={opacity < 0.1}
     >

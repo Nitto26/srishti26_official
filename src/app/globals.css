@@ -81,6 +81,6 @@
   }
 
   .curved-bottom {
-    clip-path: ellipse(100% 70% at 50% 100%);
+    clip-path: ellipse(150% 85% at 50% 100%);
   }
 }
