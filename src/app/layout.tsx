@@ -3,6 +3,7 @@ import './globals.css';
 import './ImageGallery.css';
 import '../styles/ksfeCircle.css';
 import { Toaster } from "@/components/ui/toaster";
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'SRISHTI 2.6',
@@ -16,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <Head>
+        <link rel="stylesheet" href="/circular/main.min.css" />
+      </Head>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
