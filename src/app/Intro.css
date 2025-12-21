@@ -24,12 +24,10 @@
 .video-content-container {
   position: relative;
   width: 90%;
-  max-width: 900px;
+  max-width: 1200px; /* Increased size */
   aspect-ratio: 16 / 9;
   border-radius: 2rem;
-  border: 3px solid #00ff00; /* Bright green border */
   overflow: hidden;
-  box-shadow: 0 0 40px rgba(0, 255, 0, 0.5);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -44,9 +42,18 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between; /* Adjusted for top and bottom content */
   padding: 2rem 3rem;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.main-content {
+  /* This will hold the logo, text, and buttons at the top */
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cinematic-title {
