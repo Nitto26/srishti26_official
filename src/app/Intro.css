@@ -41,19 +41,23 @@
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Center main content vertically */
+  align-items: center;    /* Center main content horizontally */
   padding: 3rem 4rem; /* Adjusted padding */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 .main-content {
-  /* This will hold the logo, text, and buttons at the top */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items within the content block */
+  text-align: center;  /* Center text */
 }
 
 .countdown-container {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
 }
 
 .cinematic-title {
@@ -74,6 +78,8 @@
   }
   .content-overlay {
     padding: 2rem 2.5rem;
+    align-items: center;
+    justify-content: center;
   }
   .main-content p {
     max-width: 80%;
@@ -92,7 +98,8 @@
   }
   .content-overlay {
     padding: 1.5rem;
-    justify-content: flex-end; /* Stack content at the bottom */
+    justify-content: center; /* Adjust for vertical centering */
+    align-items: center;
   }
   .main-content {
     margin-bottom: 2rem;
