@@ -53,7 +53,9 @@ export default function Home() {
       <Header show={showHeader} />
       <div className="relative z-20">
         <div style={{ height: '100vh' }} aria-hidden="true"></div>
-        <AnimeCarousel />
+        <div className="bg-[#000814] py-20">
+          <AnimeCarousel />
+        </div>
         <Timeline />
         <Sponsors />
         <PhotoGallery />

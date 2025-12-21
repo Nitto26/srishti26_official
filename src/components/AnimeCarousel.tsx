@@ -143,144 +143,56 @@ export function AnimeCarousel() {
 
   return (
     <>
-      <section className="who-we-are">
-        <div className="container">
-          <div className="home-section number_sec inView">
-            <div className="inner_">
-              <div className="nmbr_slide_">
-                <div className="circle-carousel py-5 ksfe-anim-text" data-speed="1000" data-autoplay="6000">
+      <section className="ksfe-section">
+          <div className="ksfe-wrapper">
+              <div className="circle-carousel" data-speed="1000" data-autoplay="6000">
                   <div className="slides">
-                    <div className="slide active">
-                      <div className="slides_">
-                        <div className="rt">
-                          <div className="nmbr_">One piece</div>
-                          <div className="text1 mb-md-4">
-                            <p className="p1">One Piece is a Japanese manga series written and illustrated by Eiichiro Oda. It has been serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump since July 1997, with its chapters compiled in 110 tankōbon volumes as of November 2024.</p>
+                      <div className="slide active">
+                          <div className="ksfe-text">
+                              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline" style={{ color: '#007FFF'}}>One piece</h2>
+                              <p className="text-lg text-foreground/80">One Piece is a Japanese manga series written and illustrated by Eiichiro Oda. It has been serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump since July 1997, with its chapters compiled in 110 tankōbon volumes as of November 2024.</p>
                           </div>
-                        </div>
                       </div>
-                    </div>
-                    <div className="slide">
-                      <div className="slides_">
-                        <div className="rt">
-                          <div className="nmbr_">Naruto</div>
-                          <div className="text1 mb-md-4">
-                            <p className="p1">Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.</p>
+                      <div className="slide">
+                          <div className="ksfe-text">
+                              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline" style={{ color: '#007FFF'}}>Naruto</h2>
+                              <p className="text-lg text-foreground/80">Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.</p>
                           </div>
-                        </div>
                       </div>
-                    </div>
-                    <div className="slide">
-                      <div className="slides_">
-                        <div className="rt">
-                          <div className="nmbr_">Dragon Balls</div>
-                          <div className="text1 mb-md-4">
-                            <p className="p1">"Dragon Ball Z" follows the adventures of Goku who, along with the Z Warriors, defends the Earth against evil. The action adventures are entertaining and reinforce the concept of good versus evil. "Dragon Ball Z" teaches valuable character virtues such as teamwork, loyalty, and trustworthiness.</p>
+                      <div className="slide">
+                          <div className="ksfe-text">
+                              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline" style={{ color: '#007FFF'}}>Dragon Balls</h2>
+                              <p className="text-lg text-foreground/80">"Dragon Ball Z" follows the adventures of Goku who, along with the Z Warriors, defends the Earth against evil. The action adventures are entertaining and reinforce the concept of good versus evil. "Dragon Ball Z" teaches valuable character virtues such as teamwork, loyalty, and trustworthiness.</p>
                           </div>
-                        </div>
                       </div>
-                    </div>
-                    <div className="slide">
-                      <div className="slides_">
-                        <div className="rt">
-                          <div className="nmbr_">Demon Slayer</div>
-                          <div className="text1 mb-md-4">
-                            <p className="p1">Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotouge. It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from February 2016 to May 2020, with its chapters collected in 23 tankōbon volumes.</p>
+                      <div className="slide">
+                          <div className="ksfe-text">
+                              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-headline" style={{ color: '#007FFF'}}>Demon Slayer</h2>
+                              <p className="text-lg text-foreground/80">Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotouge. It was serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump from February 2016 to May 2020, with its chapters collected in 23 tankōbon volumes.</p>
                           </div>
-                        </div>
                       </div>
-                    </div>
                   </div>
-                  <div className="pagin_outr">
-                    <div className="static_dot_"></div>
-                    <div className="pagination" style={{ transform: 'rotate(-1080deg)', transitionDuration: '1000ms' }}>
-                      <div className="item active" style={{ transform: 'rotate(0deg)' }}>
-                        <div className="item-wrpr">
-                          <div className="dot">
-                            <div className="span1">
-                              <div className="image-anim-wrapper">
-                                <div className="image-anim-inner">
-                                  <div className="image-active-anim">
-                                    <div className="image-zoom-wrapper">
-                                      <figure className="mb-0">
-                                        <img className="img_ b-lazy lazyloaded" alt="Image" src="/KSFE_files/op.jpg" />
-                                      </figure>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+
+                  <div className="pagination">
+                      <div className="item active">
+                          <img src="/KSFE_files/op.jpg" alt="One Piece" />
                       </div>
-                      <div className="item" style={{ transform: 'rotate(90deg)' }}>
-                        <div className="item-wrpr">
-                          <div className="dot">
-                            <div className="span1">
-                              <div className="image-anim-wrapper">
-                                <div className="image-anim-inner">
-                                  <div className="image-active-anim">
-                                    <div className="image-zoom-wrapper">
-                                      <figure className="mb-0">
-                                        <img className="img_ b-lazy lazyloaded" data-src="" alt="Image" src="/KSFE_files/n.jpg" />
-                                      </figure>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="item">
+                          <img src="/KSFE_files/n.jpg" alt="Naruto" />
                       </div>
-                      <div className="item" style={{ transform: 'rotate(180deg)' }}>
-                        <div className="item-wrpr">
-                          <div className="dot">
-                            <div className="span1">
-                              <div className="image-anim-wrapper">
-                                <div className="image-anim-inner">
-                                  <div className="image-active-anim">
-                                    <div className="image-zoom-wrapper">
-                                      <figure className="mb-0">
-                                        <img className="img_ b-lazy lazyloaded" data-src="" alt="Image" src="/KSFE_files/g.jpg" />
-                                      </figure>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="item">
+                          <img src="/KSFE_files/g.jpg" alt="Dragon Ball Z" />
                       </div>
-                      <div className="item" style={{ transform: 'rotate(270deg)' }}>
-                        <div className="item-wrpr">
-                          <div className="dot">
-                            <div className="span1">
-                              <div className="image-anim-wrapper">
-                                <div className="image-anim-inner">
-                                  <div className="image-active-anim">
-                                    <div className="image-zoom-wrapper">
-                                      <figure className="mb-0">
-                                        <img className="img_ b-lazy lazyloaded" alt="Image" src="/KSFE_files/ds.jpg" />
-                                      </figure>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="item">
+                          <img src="/KSFE_files/ds.jpg" alt="Demon Slayer" />
                       </div>
-                    </div>
                   </div>
                   <div className="slide_nav">
-                    <div className="swiper-button-prev prev"></div>
-                    <div className="swiper-button-next next"></div>
+                      <div className="swiper-button-prev prev"></div>
+                      <div className="swiper-button-next next"></div>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
-        </div>
       </section>
       <Script src="/KSFE_files/jquery.3.4.1.min.js" strategy="lazyOnload" />
       <Script src="/KSFE_files/main.js" strategy="lazyOnload" />
