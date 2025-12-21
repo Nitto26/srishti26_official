@@ -32,7 +32,7 @@ export function Intro({ opacity, transform }: IntroProps) {
       style={{ opacity }}
       aria-hidden={opacity < 0.1}
     >
-      <div className="hero-section-base">
+      <div className="hero-section-base curved-bottom">
         <video
           className={`hero-video-frame transition-opacity duration-1000 ${showVideo ? 'opacity-50' : 'opacity-0'}`}
           src="/hero.webm"
