@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <Head>
-        <link rel="stylesheet" href="/circular/main.min.css" />
+        <link rel="stylesheet" href="/KSFE_files/main.min.css" />
       </Head>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

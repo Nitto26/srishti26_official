@@ -282,8 +282,8 @@ export function AnimeCarousel() {
           </div>
         </div>
       </section>
-      <Script src="/circular/jquery.3.4.1.min.js" strategy="lazyOnload" />
-      <Script src="/circular/main.js" strategy="lazyOnload" />
+      <Script src="/KSFE_files/jquery.3.4.1.min.js" strategy="lazyOnload" />
+      <Script src="/KSFE_files/main.js" strategy="lazyOnload" />
     </>
   );
 }
