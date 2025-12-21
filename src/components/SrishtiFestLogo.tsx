@@ -8,6 +8,7 @@ export const SrishtiFestLogo = ({ className }: { className?: string }) => (
       fill
       sizes="(max-width: 768px) 50vw, 33vw"
       className="object-contain"
+      priority
     />
   </div>
 );
