@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
 const sponsors = [
-  { name: 'Target', logo: '/sponsors/target.svg' },
-  { name: 'Walmart', logo: '/sponsors/walmart.svg' },
-  { name: 'Whole Foods', logo: '/sponsors/whole-foods.svg' },
-  { name: 'Gopuff', logo: '/sponsors/gopuff.svg' },
-  { name: 'Sweetgreen', logo: '/sponsors/sweetgreen.svg' },
-  { name: 'Erewhon', logo: '/sponsors/erewhon.svg' },
-  { name: 'Spotify', logo: '/sponsors/spotify.svg' },
+  { name: 'Target', seed: 'target' },
+  { name: 'Walmart', seed: 'walmart' },
+  { name: 'Whole Foods', seed: 'whole-foods' },
+  { name: 'Gopuff', seed: 'gopuff' },
+  { name: 'Sweetgreen', seed: 'sweetgreen' },
+  { name: 'Erewhon', seed: 'erewhon' },
+  { name: 'Spotify', seed: 'spotify' },
 ];
 
 const allSponsors = [...sponsors, ...sponsors];
@@ -24,7 +24,7 @@ export function Sponsors() {
             {allSponsors.map((sponsor, index) => (
               <div key={index} className="w-48 h-12 flex items-center justify-center mx-8">
                 <Image
-                  src={sponsor.logo}
+                  src={`https://picsum.photos/seed/${sponsor.seed}/140/40`}
                   alt={sponsor.name}
                   width={140}
                   height={40}
