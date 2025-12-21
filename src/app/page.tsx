@@ -27,7 +27,7 @@ export default function Home() {
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const fadeOutDistance = window.innerHeight * 1.0;
+      const fadeOutDistance = window.innerHeight * 0.8;
       
       const opacity = Math.max(0, 1 - scrollY / fadeOutDistance);
       setIntroOpacity(opacity);
