@@ -48,7 +48,7 @@ export function PhotoGallery() {
             }}
             className="border hover:scale-105 transition-transform"
             >
-              <a href="#" download>
+              <a href="https://drive.google.com/drive/folders/1xqnPYIikYHRfvqEAiUsM3OxEF5RcEdG3?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" />
                 Get your event photos
               </a>
