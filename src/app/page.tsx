@@ -67,7 +67,7 @@ export default function Home() {
         <Contact />
       </div>
        <footer className="text-center p-8 relative z-20">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-foreground/50 hover:text-foreground transition-colors">
+          <a href="https://www.instagram.com/srishti__2.6/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-foreground/50 hover:text-foreground transition-colors">
             <Instagram className="w-5 h-5" />
             <span>Srishti 2.6</span>
           </a>
