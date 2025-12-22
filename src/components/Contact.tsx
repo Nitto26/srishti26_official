@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,20 +12,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
-  const { toast } = useToast();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    // In a real app, you'd handle form submission (e.g., send to an API endpoint)
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for contacting us. We'll get back to you shortly.",
-    });
-    form.reset();
+    const subject = `Message from ${name} (${email})`;
+    const body = message;
+    const mailtoLink = `mailto:your-email@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -45,7 +43,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" required placeholder="Your Name" />
+                <Input id="name" required placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
@@ -54,6 +52,8 @@ export function Contact() {
                   type="email"
                   required
                   placeholder="your.email@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
@@ -63,6 +63,8 @@ export function Contact() {
                   required
                   placeholder="Your message..."
                   className="min-h-[120px]"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <Button type="submit" className="w-full" style={{
