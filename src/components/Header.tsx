@@ -98,7 +98,7 @@ export function Header({ show }: HeaderProps) {
                     </SheetClose>
                   ))}
                 </nav>
-                <div className="mt-auto pb-4">
+                <div className="mt-auto pb-8">
                    <Button asChild size="lg" className="w-full" style={{
                       backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
                       borderColor: 'hsl(var(--accent))'
