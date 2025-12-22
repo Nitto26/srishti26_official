@@ -17,7 +17,7 @@ export const events: Event[] = [
     title: "Inauguration Ceremony",
     description: "Event will be in the Medlycot",
     date: "Day 1",
-    time: "10:00 AM",
+    time: "09 AM to 10 Am",
     image: {
       id: "event-1",
       url: "https://picsum.photos/seed/event1/600/400",
