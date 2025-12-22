@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Countdown } from './Countdown';
 import { SrishtiFestLogo } from './SrishtiFestLogo';
-import Link from 'next/link';
 
 type IntroProps = {
   opacity: number;
