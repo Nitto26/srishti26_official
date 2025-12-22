@@ -68,7 +68,7 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
 
         <div className="content-overlay">
           <div className="main-content">
-            <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-24 md:h-32 mb-4" />
+            <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-32 md:h-48 mb-4" />
             <p className="text-sm md:text-base text-white/80 max-w-lg leading-relaxed shadow-black/50 [text-shadow:0_1px_4px_var(--tw-shadow-color)]">
               Srishti 2.6 is the annual techno-cultural festival, a vibrant celebration of creativity, innovation, and talent. Join us for an unforgettable experience.
             </p>
