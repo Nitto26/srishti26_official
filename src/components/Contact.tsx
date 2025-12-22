@@ -22,7 +22,7 @@ export function Contact() {
     e.preventDefault();
     const subject = `Message from ${name} (${email})`;
     const body = message;
-    const mailtoLink = `mailto:your-email@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:stc.srishti2.6@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 
