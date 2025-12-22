@@ -40,10 +40,7 @@
 .content-overlay {
   position: absolute;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 4rem;
+  pointer-events: none; /* Allows clicks to pass through */
 }
 
 .main-content {
@@ -75,10 +72,7 @@
     max-width: 95%;
     border-radius: 1.5rem;
   }
-  .content-overlay {
-    padding: 2rem 2.5rem;
-  }
-  .main-content p {
+  .main-content {
     max-width: 80%;
   }
 }
@@ -97,15 +91,7 @@
     width: 80%;
     max-width: 400px;
   }
-  .content-overlay {
-    background: none;
-    padding: 1.5rem;
-    justify-content: center; 
-    align-items: center;
-  }
-  .main-content {
-    margin-bottom: 2rem;
-  }
+  
    .main-content p {
     font-size: 0.875rem;
     max-width: 100%;

@@ -65,7 +65,9 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
           />
         </div>
 
-        <div className="content-overlay">
+        <div className="content-overlay" />
+        
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
           <div className="main-content">
             <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-48 md:h-64 mb-4" />
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 mt-6 w-full max-w-xs md:max-w-none">
@@ -83,9 +85,10 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
               </a>
             </div>
           </div>
-          <div className="countdown-container">
-            <Countdown targetDate={eventDate} />
-          </div>
+        </div>
+
+        <div className="countdown-container">
+          <Countdown targetDate={eventDate} />
         </div>
       </div>
     </div>
