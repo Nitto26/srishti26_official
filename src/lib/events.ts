@@ -32,8 +32,8 @@ export const events: Event[] = [
     time: "12:00 PM onwards",
     image: {
       id: "event-2",
-      url: "https://picsum.photos/seed/coding-event/600/400",
-      hint: "coding hackathon",
+      url: "https://picsum.photos/seed/person-coding/600/400",
+      hint: "person coding",
     },
   },
     {
