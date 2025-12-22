@@ -82,12 +82,6 @@ export function Header({ show }: HeaderProps) {
             <SheetContent side="right">
               <SheetHeader className="border-b pb-4 flex-row justify-between items-center">
                 <SheetTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</SheetTitle>
-                 <SheetClose asChild>
-                   <Button variant="ghost" size="icon">
-                     <X className="h-6 w-6" />
-                     <span className="sr-only">Close navigation menu</span>
-                   </Button>
-                </SheetClose>
                 <SheetDescription className="sr-only">Main navigation menu containing links to different sections of the page.</SheetDescription>
               </SheetHeader>
               <div className="flex flex-col h-full">
