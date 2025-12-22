@@ -20,8 +20,8 @@ export const events: Event[] = [
     time: "09 AM to 10 Am",
     image: {
       id: "event-1",
-      url: "https://picsum.photos/seed/event1/600/400",
-      hint: "opening ceremony",
+      url: "https://picsum.photos/seed/inauguration/600/400",
+      hint: "inauguration",
     },
   },
   {
