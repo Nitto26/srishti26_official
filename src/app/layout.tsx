@@ -3,6 +3,7 @@ import './globals.css';
 import './ImageGallery.css';
 import './Intro.css';
 import './Timeline.css';
+import './PhotoGallery.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
