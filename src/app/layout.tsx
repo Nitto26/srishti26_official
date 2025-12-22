@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <Head>
         <link rel="stylesheet" href="/KSFE_files/main.min.css" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
