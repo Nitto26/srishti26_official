@@ -62,8 +62,8 @@ export default function Home() {
         <Timeline />
         <Sponsors />
         <PhotoGallery />
-        <ImageGallery />
         <PromoVideo />
+        <ImageGallery />
         <About />
         <Contact />
       </div>
