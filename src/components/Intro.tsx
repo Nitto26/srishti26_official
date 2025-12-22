@@ -78,10 +78,10 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary" className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30">
-                  <Link href="#about">
+                  <a href="#about">
                     <Info className="mr-2 h-5 w-5" />
                     Learn More
-                  </Link>
+                  </a>
               </Button>
             </div>
           </div>
