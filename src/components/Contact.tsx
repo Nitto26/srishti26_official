@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,30 +16,41 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const form = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // In a real application, you would send this data to a backend endpoint.
-    // For this example, we'll just log it and show a success message.
-    console.log("Form submitted:", { name, email, message });
 
-    // Here you would typically use fetch() to POST to your backend API
-    // e.g., await fetch('/api/contact', { method: 'POST', body: JSON.stringify({ name, email, message }) });
-
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you soon.",
-    });
-
-    // Reset form fields
-    setName('');
-    setEmail('');
-    setMessage('');
+    if (form.current) {
+      emailjs
+        .sendForm(
+          'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
+          'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+          form.current,
+          {
+            publicKey: 'YOUR_PUBLIC_KEY', // Replace with your EmailJS Public Key
+          }
+        )
+        .then(
+          () => {
+            console.log('SUCCESS!');
+            toast({
+              title: "Message Sent!",
+              description: "Thank you for reaching out. We'll get back to you soon.",
+            });
+            form.current?.reset();
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+            toast({
+              variant: "destructive",
+              title: "Uh oh! Something went wrong.",
+              description: "There was a problem sending your message. Please try again.",
+            });
+          }
+        );
+    }
   };
 
   return (
@@ -55,31 +67,29 @@ export function Contact() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" required placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <Label htmlFor="from_name">Name</Label>
+                <Input id="from_name" name="from_name" required placeholder="Your Name" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="from_email">Email</Label>
                 <Input
-                  id="email"
+                  id="from_email"
                   type="email"
+                  name="from_email"
                   required
                   placeholder="your.email@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   required
                   placeholder="Your message..."
                   className="min-h-[120px]"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <Button type="submit" className="w-full" style={{
