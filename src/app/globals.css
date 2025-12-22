@@ -68,6 +68,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  a {
+    @apply transition-colors duration-300;
+  }
+  a:hover {
+    @apply text-accent;
+  }
 }
 
 @layer utilities {
