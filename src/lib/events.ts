@@ -36,7 +36,7 @@ export const events: Event[] = [
       hint: "coding hackathon",
     },
   },
-  {
+    {
     id: 3,
     title: "RoboWars",
     description: "Witness the clash of titans as custom-built robots battle for supremacy in the arena.",
@@ -74,6 +74,54 @@ export const events: Event[] = [
   },
   {
     id: 6,
+    title: "Workshop: Intro to Generative AI",
+    description: "Learn the fundamentals of generative AI and build your first AI application.",
+    date: "Day 2",
+    time: "10:00 AM",
+    image: {
+      id: "event-7",
+      url: "https://picsum.photos/seed/event7/600/400",
+      hint: "AI workshop",
+    },
+  },
+  {
+    id: 7,
+    title: "Gaming Tournament",
+    description: "Compete in popular esports titles and win exciting prizes.",
+    date: "Day 3",
+    time: "1:00 PM",
+    image: {
+      id: "event-8",
+      url: "https://picsum.photos/seed/event8/600/400",
+      hint: "esports gaming",
+    },
+  },
+  {
+    id: 8,
+    title: "Nukkad Natak (Street Play)",
+    description: "Powerful street plays on social issues, performed with passion and creativity.",
+    date: "Day 2",
+    time: "4:00 PM",
+    image: {
+      id: "event-9",
+      url: "https://picsum.photos/seed/event9/600/400",
+      hint: "street theatre",
+    },
+  },
+    {
+    id: 9,
+    title: "Photography Exhibition",
+    description: "A stunning display of photographs captured by talented students.",
+    date: "Day 1-4",
+    time: "All Day",
+    image: {
+      id: "event-10",
+      url: "https://picsum.photos/seed/event10/600/400",
+      hint: "photo gallery",
+    },
+  },
+  {
+    id: 10,
     title: "Valedictory & DJ Night",
     description: "Concluding the fest with prize distribution followed by a massive DJ night to celebrate.",
     date: "Day 4",
