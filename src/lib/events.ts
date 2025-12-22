@@ -15,7 +15,7 @@ export const events: Event[] = [
   {
     id: 1,
     title: "Inauguration Ceremony",
-    description: "Kick off SrishtiFest with a grand opening ceremony featuring special guests and performances.",
+    description: "Event will be in the Medlycot",
     date: "Day 1",
     time: "10:00 AM",
     image: {
