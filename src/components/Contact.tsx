@@ -41,11 +41,18 @@ export function Contact() {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
+    const templateParams = {
+      name: values.from_name,
+      email: values.from_email,
+      message: values.message,
+      title: `Message from ${values.from_name}`
+    };
+    
     emailjs
       .send(
         'service_6ieymt3',
         'template_9me5hxl',
-        values,
+        templateParams,
         {
           publicKey: 'w10-xFzmNOqNr4NQC',
         }
