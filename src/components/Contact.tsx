@@ -51,9 +51,7 @@ export function Contact() {
         'service_6ieymt3',
         'template_9me5hxl',
         formRef.current,
-        {
-          publicKey: 'w10-xFzmNOqNr4NQC',
-        }
+        'w10-xFzmNOqNr4NQC'
       )
       .then(
         () => {
@@ -98,7 +96,7 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" {...field} />
+                        <Input placeholder="Your Name" {...field} name="from_name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -111,7 +109,7 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your.email@example.com" {...field} />
+                        <Input placeholder="your.email@example.com" {...field} name="from_email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -128,6 +126,7 @@ export function Contact() {
                           placeholder="Your message..."
                           className="min-h-[120px]"
                           {...field}
+                          name="message"
                         />
                       </FormControl>
                       <FormMessage />
