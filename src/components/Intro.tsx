@@ -54,24 +54,22 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
           style={{ filter: `blur(${blur}px)` }}
         />
         
-        {!isMobile && (
-           <div className="video-content-container">
-            <video
-              className="hero-video-frame"
-              src="/s-v.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
-        )}
+        <div className="video-content-container">
+          <video
+            className="hero-video-frame"
+            src="/s-v.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        </div>
 
         <div className="content-overlay">
           <div className="main-content">
             <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-48 md:h-64 mb-4" />
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 mt-6 w-full max-w-xs md:max-w-none">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold md:px-10 md:py-6 md:text-lg transition-transform hover:scale-105">
+              <Button asChild size="lg" className="w-full bg-white text-black hover:bg-white/90 font-bold md:px-10 md:py-6 md:text-lg transition-transform hover:scale-105">
                 <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
                   <Play className="mr-2 h-5 w-5" />
                   Register Now
