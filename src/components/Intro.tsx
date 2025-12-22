@@ -70,14 +70,14 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
           <div className="main-content">
             <SrishtiFestLogo className="w-full md:w-2/3 lg:w-1/2 h-48 md:h-64 mb-4" />
             <div className="flex items-center gap-4 mt-6">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold">
+              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold md:px-10 md:py-6 md:text-lg transition-transform hover:scale-105">
                 <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer">
                   <Play className="mr-2 h-5 w-5" />
                   Register Now
                 </a>
               </Button>
               <a href="#about">
-                <Button size="lg" variant="secondary" className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30">
+                <Button size="lg" variant="secondary" className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 md:px-10 md:py-6 md:text-lg transition-transform hover:scale-105">
                     <Info className="mr-2 h-5 w-5" />
                     Learn More
                 </Button>
