@@ -80,7 +80,7 @@ export function Header({ show }: HeaderProps) {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <SheetHeader className="border-b pb-4 flex-row justify-between items-center">
+              <SheetHeader className="border-b pb-4">
                 <SheetTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">Srishti 2.6</SheetTitle>
                 <SheetDescription className="sr-only">Main navigation menu containing links to different sections of the page.</SheetDescription>
               </SheetHeader>
@@ -98,7 +98,7 @@ export function Header({ show }: HeaderProps) {
                     </SheetClose>
                   ))}
                 </nav>
-                <div className="mt-8">
+                <div className="mt-auto pb-4">
                    <Button asChild size="lg" className="w-full" style={{
                       backgroundImage: 'linear-gradient(to right, hsl(var(--primary)), hsl(275, 100%, 25%))',
                       borderColor: 'hsl(var(--accent))'
