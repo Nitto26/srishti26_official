@@ -25,11 +25,11 @@ export function Contact() {
     if (form.current) {
       emailjs
         .sendForm(
-          'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
-          'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+          'service_6ieymt3',
+          'template_9me5hxl',
           form.current,
           {
-            publicKey: 'YOUR_PUBLIC_KEY', // Replace with your EmailJS Public Key
+            publicKey: 'w10-xFzmNOqNr4NQC',
           }
         )
         .then(
