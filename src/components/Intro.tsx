@@ -45,7 +45,7 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
       <div className="hero-section-base" style={{ transform: `scale(${scale})` }}>
         <video
           className="hero-video-background"
-          src="/hero.webm"
+          src="/s-v.mp4"
           autoPlay
           loop
           muted
@@ -57,7 +57,7 @@ export function Intro({ opacity, scale, blur }: IntroProps) {
            <div className="video-content-container">
             <video
               className="hero-video-frame"
-              src="/hero.webm"
+              src="/s-v.mp4"
               autoPlay
               loop
               muted
