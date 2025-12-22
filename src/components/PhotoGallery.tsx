@@ -17,10 +17,7 @@ export function PhotoGallery() {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsIntersecting(true);
-                    observer.unobserve(entry.target);
-                }
+                setIsIntersecting(entry.isIntersecting);
             },
             {
                 threshold: 0.5,
