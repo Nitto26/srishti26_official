@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -31,6 +32,8 @@ const formSchema = z.object({
 
 export function Contact() {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,18 +44,13 @@ export function Contact() {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    const templateParams = {
-      name: values.from_name,
-      email: values.from_email,
-      title: `Message from ${values.from_name}`,
-      message: values.message,
-    };
+    if (!formRef.current) return;
     
     emailjs
-      .send(
+      .sendForm(
         'service_6ieymt3',
         'template_9me5hxl',
-        templateParams,
+        formRef.current,
         {
           publicKey: 'w10-xFzmNOqNr4NQC',
         }
@@ -92,7 +90,7 @@ export function Contact() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form ref={formRef} onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="from_name"
