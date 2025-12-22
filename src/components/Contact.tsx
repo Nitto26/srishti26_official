@@ -44,8 +44,8 @@ export function Contact() {
     const templateParams = {
       name: values.from_name,
       email: values.from_email,
+      title: `Message from ${values.from_name}`,
       message: values.message,
-      title: `Message from ${values.from_name}`
     };
     
     emailjs
