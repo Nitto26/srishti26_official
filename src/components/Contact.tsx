@@ -12,18 +12,33 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const { toast } = useToast();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = `Message from ${name} (${email})`;
-    const body = message;
-    const mailtoLink = `mailto:stc.srishti2.6@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    
+    // In a real application, you would send this data to a backend endpoint.
+    // For this example, we'll just log it and show a success message.
+    console.log("Form submitted:", { name, email, message });
+
+    // Here you would typically use fetch() to POST to your backend API
+    // e.g., await fetch('/api/contact', { method: 'POST', body: JSON.stringify({ name, email, message }) });
+
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. We'll get back to you soon.",
+    });
+
+    // Reset form fields
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (

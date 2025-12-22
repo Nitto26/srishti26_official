@@ -11,10 +11,11 @@ import { PromoVideo } from "@/components/PromoVideo";
 import { Sponsors } from "@/components/Sponsors";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { ImageGallery } from "@/components/ImageGallery";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
   const [introOpacity, setIntroOpacity] = useState(1);
-  const [introScale, setIntroScale] = useState(1);
+  const [introScale, setIntroScale]    = useState(1);
   const [introBlur, setIntroBlur] = useState(0);
   const [showHeader, setShowHeader] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -72,6 +73,7 @@ export default function Home() {
             <span>Srishti 2.6</span>
           </a>
        </footer>
+       <Toaster />
     </main>
   );
 }
