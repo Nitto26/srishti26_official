@@ -21,14 +21,14 @@ export const events: Event[] = [
     time: "09 AM to 10 Am",
     image: {
       id: "event-1",
-      url: "https://images.unsplash.com/photo-1560801122-b59974a71aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvcGVuaW5nJTIwY2VyZW1vbnl8ZW58MHx8fHwxNzY1NjQxNjQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      url: "/images/colleage.jpg",
       hint: "inauguration",
     },
   },
   {
     id: 2,
     title: "Codex",
-    description: "A 24-hour hackathon focused on creating innovative solutions using Artificial Intelligence.",
+    description: "Coding competition",
     date: "Day 1-2",
     time: "12:00 PM onwards",
     image: {
@@ -39,8 +39,8 @@ export const events: Event[] = [
   },
     {
     id: 3,
-    title: "RoboWars",
-    description: "Witness the clash of titans as custom-built robots battle for supremacy in the arena.",
+    title: "TraceBot",
+    description: "Line follower robot competition.",
     date: "Day 2",
     time: "2:00 PM",
     image: {
@@ -51,8 +51,8 @@ export const events: Event[] = [
   },
   {
     id: 4,
-    title: "Startup Pitch Deck",
-    description: "Entrepreneurs pitch their groundbreaking ideas to a panel of investors and industry experts.",
+    title: "Ardentis",
+    description: "Ideathon - Idea presentation.",
     date: "Day 3",
     time: "11:00 AM",
     image: {
@@ -63,8 +63,8 @@ export const events: Event[] = [
   },
   {
     id: 5,
-    title: "Crescendo: Battle of Bands",
-    description: "Rock the night away with electrifying performances from the best college bands.",
+    title: "Waltz",
+    description: "Dance competition",
     date: "Day 3",
     time: "6:00 PM",
     image: {
@@ -75,8 +75,8 @@ export const events: Event[] = [
   },
   {
     id: 6,
-    title: "Workshop: Intro to Generative AI",
-    description: "Learn the fundamentals of generative AI and build your first AI application.",
+    title: "MindScape",
+    description: "Mind game - puzzle solving",
     date: "Day 2",
     time: "10:00 AM",
     image: {
@@ -87,8 +87,8 @@ export const events: Event[] = [
   },
   {
     id: 7,
-    title: "Gaming Tournament",
-    description: "Compete in popular esports titles and win exciting prizes.",
+    title: "Hiest & Seek",
+    description: "Treasure hunt",
     date: "Day 3",
     time: "1:00 PM",
     image: {
@@ -99,8 +99,8 @@ export const events: Event[] = [
   },
   {
     id: 8,
-    title: "Nukkad Natak (Street Play)",
-    description: "Powerful street plays on social issues, performed with passion and creativity.",
+    title: "Bug Smash",
+    description: "Debugging Competition",
     date: "Day 2",
     time: "4:00 PM",
     image: {
@@ -111,8 +111,8 @@ export const events: Event[] = [
   },
     {
     id: 9,
-    title: "Photography Exhibition",
-    description: "A stunning display of photographs captured by talented students.",
+    title: "Inquizitive",
+    description: "Quiz Competiton",
     date: "Day 1-4",
     time: "All Day",
     image: {
@@ -123,8 +123,8 @@ export const events: Event[] = [
   },
   {
     id: 10,
-    title: "Valedictory & DJ Night",
-    description: "Concluding the fest with prize distribution followed by a massive DJ night to celebrate.",
+    title: "Web Craft",
+    description: "Web Designing Competition",
     date: "Day 4",
     time: "7:00 PM",
     image: {
