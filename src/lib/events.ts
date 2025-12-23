@@ -1,3 +1,4 @@
+
 export type Event = {
   id: number;
   title: string;
@@ -20,19 +21,19 @@ export const events: Event[] = [
     time: "09 AM to 10 Am",
     image: {
       id: "event-1",
-      url: "https://picsum.photos/seed/inauguration/600/400",
+      url: "https://images.unsplash.com/photo-1560801122-b59974a71aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvcGVuaW5nJTIwY2VyZW1vbnl8ZW58MHx8fHwxNzY1NjQxNjQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       hint: "inauguration",
     },
   },
   {
     id: 2,
-    title: "CodeSprint: AI Challenge",
+    title: "Codex",
     description: "A 24-hour hackathon focused on creating innovative solutions using Artificial Intelligence.",
     date: "Day 1-2",
     time: "12:00 PM onwards",
     image: {
       id: "event-2",
-      url: "https://picsum.photos/seed/person-coding/600/400",
+      url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjB0eXBpbmclMjBjb2RlJTIwaW4lMjB0aGUlMjBjb21wdXRlcnxlbnwwfHx8fDE3MjE4MzYzODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       hint: "person coding",
     },
   },
