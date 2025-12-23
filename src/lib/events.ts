@@ -45,7 +45,7 @@ export const events: Event[] = [
     time: "2:00 PM",
     image: {
       id: "event-3",
-      url: "https://picsum.photos/seed/event3/600/400",
+      url: "/images/line.png",
       hint: "robot combat",
     },
   },
@@ -57,7 +57,7 @@ export const events: Event[] = [
     time: "11:00 AM",
     image: {
       id: "event-4",
-      url: "https://picsum.photos/seed/event4/600/400",
+      url: "/images/idea.png",
       hint: "business pitch",
     },
   },
@@ -69,7 +69,7 @@ export const events: Event[] = [
     time: "6:00 PM",
     image: {
       id: "event-5",
-      url: "https://picsum.photos/seed/event5/600/400",
+      url: "/images/waltz.jpeg",
       hint: "music concert",
     },
   },
@@ -93,7 +93,7 @@ export const events: Event[] = [
     time: "1:00 PM",
     image: {
       id: "event-8",
-      url: "https://picsum.photos/seed/event8/600/400",
+      url: "/images/tresure hunt.png",
       hint: "esports gaming",
     },
   },
@@ -105,7 +105,7 @@ export const events: Event[] = [
     time: "4:00 PM",
     image: {
       id: "event-9",
-      url: "https://picsum.photos/seed/event9/600/400",
+      url: "/images/debbug.png",
       hint: "street theatre",
     },
   },
@@ -117,7 +117,7 @@ export const events: Event[] = [
     time: "All Day",
     image: {
       id: "event-10",
-      url: "https://picsum.photos/seed/event10/600/400",
+      url: "/images/quiz.png",
       hint: "photo gallery",
     },
   },
@@ -129,7 +129,7 @@ export const events: Event[] = [
     time: "7:00 PM",
     image: {
       id: "event-6",
-      url: "https://picsum.photos/seed/event6/600/400",
+      url: "/images/web.png",
       hint: "dj party",
     },
   },
