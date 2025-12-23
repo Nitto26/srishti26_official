@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const images = [
-    { src: "https://picsum.photos/seed/gallery_strip_1/800/600", alt: "Image 1", hint: "event stage" },
+    { src: "/images/2026.png", alt: "Srishti 2.6", hint: "event logo" },
     { src: "https://picsum.photos/seed/gallery_strip_2/800/600", alt: "Image 2", hint: "audience cheering" },
     { src: "https://picsum.photos/seed/gallery_strip_3/800/600", alt: "Image 3", hint: "laser show" },
     { src: "https://picsum.photos/seed/gallery_strip_4/800/600", alt: "Image 4", hint: "dj console" },
