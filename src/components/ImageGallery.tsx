@@ -3,11 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 
 const images = [
-    { src: "/images/2026.png", alt: "Srishti 2.6", hint: "event logo" },
-    { src: "https://picsum.photos/seed/gallery_strip_2/800/600", alt: "Image 2", hint: "audience cheering" },
-    { src: "https://picsum.photos/seed/gallery_strip_3/800/600", alt: "Image 3", hint: "laser show" },
-    { src: "https://picsum.photos/seed/gallery_strip_4/800/600", alt: "Image 4", hint: "dj console" },
-    { src: "https://picsum.photos/seed/gallery_strip_5/800/600", alt: "Image 5", hint: "people dancing" }
+    { src: "/images/2012.jpg", alt: "Srishti 2.6", hint: "event logo" },
+    { src: "/images/2018.jpg", alt: "Image 2", hint: "audience cheering" },
+    { src: "/images/2024.jpeg", alt: "Image 3", hint: "laser show" },
+    { src: "/images/2025.png", alt: "Image 4", hint: "dj console" },
+    { src: "/images/2026.png", alt: "Image 5", hint: "people dancing" }
 ];
 
 export function ImageGallery() {
