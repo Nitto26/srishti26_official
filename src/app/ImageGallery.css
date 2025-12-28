@@ -1,3 +1,4 @@
+
 .wrapper {
     width: 100%;
     display: flex;
@@ -10,13 +11,13 @@
     display: flex;
     gap: 1rem;
     width: 100%;
-    max-width: 1200px; /* Adjust as needed */
-    transition: all 0.3s ease;
+    max-width: 1200px;
+    align-items: center;
+    min-height: 300px;
 }
 
 .gallery .image {
     position: relative;
-    height: 300px;
     flex: 1;
     border-radius: 1rem;
     overflow: hidden;
@@ -31,8 +32,8 @@
 }
 
 .gallery .image img {
-    height: 100%;
-    width: 100%;
+    height: auto !important;
+    width: 100% !important;
     object-fit: cover;
     object-position: center;
     pointer-events: none;
