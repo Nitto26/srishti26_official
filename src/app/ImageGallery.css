@@ -32,9 +32,9 @@
 }
 
 .gallery .image img {
-    height: auto !important;
     width: 100% !important;
-    object-fit: cover;
+    height: auto !important;
+    object-fit: contain;
     object-position: center;
     pointer-events: none;
 }
