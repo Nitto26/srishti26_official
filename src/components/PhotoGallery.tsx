@@ -6,9 +6,9 @@ import { Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const galleryImages = [
-  { id: 'gallery-1', src: '/images/1.jpg', alt: 'Event photo 1', hint: 'event crowd' },
-  { id: 'gallery-2', src: '/images/2.jpg', alt: 'Event photo 2', hint: 'stage lights' },
-  { id: 'gallery-3', src: '/images/3.jpg', alt: 'Event photo 3', hint: 'people dancing' },
+  { id: 'gallery-1', src: 'https://picsum.photos/seed/srishti1/800/600', alt: 'Event photo 1', hint: 'event crowd' },
+  { id: 'gallery-2', src: 'https://picsum.photos/seed/srishti2/800/600', alt: 'Event photo 2', hint: 'stage lights' },
+  { id: 'gallery-3', src: 'https://picsum.photos/seed/srishti3/800/600', alt: 'Event photo 3', hint: 'people dancing' },
 ];
 
 export function PhotoGallery() {
