@@ -63,8 +63,8 @@ export default function Home() {
         <Sponsors />
         <PhotoGallery />
         <PromoVideo />
-        <ImageGallery />
         <About />
+        <ImageGallery />
         <Contact />
       </div>
        <footer className="text-center p-8 relative z-20">
