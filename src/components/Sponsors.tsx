@@ -28,7 +28,7 @@ export function Sponsors() {
                   alt={sponsor.name}
                   width={140}
                   height={40}
-                  className="h-full w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className="h-full w-auto object-contain transition-all duration-300"
                 />
               </div>
             ))}
